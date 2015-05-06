@@ -1,4 +1,7 @@
-﻿Public Class SiteMaster
+﻿Imports System.Linq
+
+
+Public Class SiteMaster
     Inherits MasterPage
     Private Const AntiXsrfTokenKey As String = "__AntiXsrfToken"
     Private Const AntiXsrfUserNameKey As String = "__AntiXsrfUserName"
@@ -50,5 +53,9 @@
     Protected Sub Unnamed_LoggingOut(sender As Object, e As LoginCancelEventArgs)
         Context.GetOwinContext().Authentication.SignOut()
     End Sub
-
+    Public Function GetCategories() As IQueryable(Of Category)
+        Dim db As ProductContext = New When_Where_Web_Application.ProductContext()
+        Dim query As IQueryable(Of Category) = db.Categories
+        Return query
+    End Function
 End Class

@@ -7,4 +7,10 @@
   <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=(LocalDb)\v11.0;AttachDbFilename=&quot;|DataDirectory|\aspnet-When Where Web Application-20150430111739.mdf&quot;;Initial Catalog=&quot;aspnet-When Where Web Application-20150430111739&quot;;Integrated Security=True" tags="">
     <parameterEntry kind="XmlFile" scope="C:\\Projects\\When\ Where\\Web\ Application\\When\ Where\ Web\ Application\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
+  <parameter name="When_Where_Web_Application.ProductContext-Web.config Connection String" description="" value="When_Where_Web_Application.ProductContext_ConnectionString" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Projects\\When\ Where\\Web\ Application\\When\ Where\ Web\ Application\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='When_Where_Web_Application.ProductContext']/@connectionString" />
+  </parameter>
+  <parameter name="WingtipToys-Web.config Connection String" description="WingtipToys Connection String used in web.config by the application to access the database." value="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\wingtiptoys.mdf;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Projects\\When\ Where\\Web\ Application\\When\ Where\ Web\ Application\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WingtipToys']/@connectionString" />
+  </parameter>
 </parameters>

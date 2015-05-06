@@ -46,6 +46,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -181,13 +183,33 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\LogoSample.png" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <EntityDeploy Include="Models\WhenWhereModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WhenWhereModel.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\WhenWhereModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WhenWhereModel.edmx</DependentUpon>
+      <LastGenOutput>WhenWhereModel.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="Models\WhenWhereModel.edmx.diagram">
+      <DependentUpon>WhenWhereModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\WhenWhereModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WhenWhereModel.edmx</DependentUpon>
+      <LastGenOutput>WhenWhereModel.vb</LastGenOutput>
+    </Content>
     <None Include="My Project\PublishProfiles\whenwheredev.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="ProductDetails.aspx" />
+    <Content Include="ProductList.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -294,7 +316,56 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.vb" />
     <Compile Include="Models\IdentityModels.vb" />
+    <Compile Include="Models\Product.vb" />
+    <Compile Include="Models\ProductContext.vb" />
+    <Compile Include="Models\ProductDatabaseInitialization.vb" />
+    <Compile Include="Models\tblAvailability.vb">
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblClientReservationTable.vb">
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblPerson.vb">
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProvider.vb">
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProviderClient.vb">
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProvidersClientsAndGroup.vb">
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSalesPerson.vb">
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblService.vb">
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSuperUser.vb">
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblTransactionHistory.vb">
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WhenWhereModel.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WhenWhereModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WhenWhereModel.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WhenWhereModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WhenWhereModel.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -313,6 +384,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.vb">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.vb">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ProductList.aspx.designer.vb">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductList.aspx.vb">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
@@ -361,6 +446,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
