@@ -32,5 +32,6 @@ Partial Public Class WhenWhereEntities
     Public Overridable Property tblServices() As DbSet(Of tblService)
     Public Overridable Property tblSuperUsers() As DbSet(Of tblSuperUser)
     Public Overridable Property tblTransactionHistories() As DbSet(Of tblTransactionHistory)
+    Public Overridable Property tblConstants() As DbSet(Of tblConstant)
 
 End Class

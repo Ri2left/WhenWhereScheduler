@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WhenWhereDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WhenWhereDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAvailability">
           <Key>
             <PropertyRef Name="Availability_id" />
@@ -48,9 +48,10 @@
           <Property Name="Client_Reservations_misc5" Type="nchar" MaxLength="10" />
           <Property Name="Client_Reservations_tags" Type="nchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'WhenWhere.dbo.tblConstants' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="tblConstants">
+          <Key>
+            <PropertyRef Name="PK" />
+          </Key>
           <Property Name="MONTHLY_FEE" Type="smallmoney" />
           <Property Name="NUMBER_OF_FREE_DAYS" Type="int" />
           <Property Name="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" Type="ntext" />
@@ -62,7 +63,8 @@ warning 6013: The table/view 'WhenWhere.dbo.tblConstants' does not have a primar
           <Property Name="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" Type="ntext" />
           <Property Name="USE_OF_MISC_COLUMNS" Type="ntext" />
           <Property Name="COLORS_TO_CYCLE_THROUGH" Type="ntext" />
-        </EntityType>-->
+          <Property Name="PK" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="tblPerson">
           <Key>
             <PropertyRef Name="Person_id" />
@@ -101,7 +103,7 @@ warning 6013: The table/view 'WhenWhere.dbo.tblConstants' does not have a primar
           <Property Name="Provider_latest_news" Type="ntext" />
           <Property Name="Provider_current_announcement_message_for_client_dashboard" Type="ntext" />
           <Property Name="Provider_to_email_frequency" Type="int" />
-          <Property Name="Provider_last_time_email_sent_to_provider" Type="smalldatetime" Nullable="false" />
+          <Property Name="Provider_last_time_email_sent_to_provider" Type="smalldatetime" />
           <Property Name="Provider_unsent_email_qeue" Type="ntext" />
           <Property Name="Provider_allows_new_clients_without_approval" Type="int" />
           <Property Name="Provider_required_passphrase_for_clients" Type="nchar" MaxLength="10" />
@@ -252,6 +254,7 @@ warning 6013: The table/view 'WhenWhere.dbo.tblConstants' does not have a primar
         <EntityContainer Name="WhenWhereDataModelStoreContainer">
           <EntitySet Name="tblAvailability" EntityType="Self.tblAvailability" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblClientReservationTable" EntityType="Self.tblClientReservationTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConstants" EntityType="Self.tblConstants" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPerson" EntityType="Self.tblPerson" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblProvider" EntityType="Self.tblProvider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblProviderClient" EntityType="Self.tblProviderClient" Schema="dbo" store:Type="Tables" />
@@ -261,8 +264,7 @@ warning 6013: The table/view 'WhenWhere.dbo.tblConstants' does not have a primar
           <EntitySet Name="tblSuperUser" EntityType="Self.tblSuperUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTransactionHistory" EntityType="Self.tblTransactionHistory" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WhenWhereDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -347,7 +349,7 @@ warning 6013: The table/view 'WhenWhere.dbo.tblConstants' does not have a primar
           <Property Name="Provider_latest_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Provider_current_announcement_message_for_client_dashboard" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Provider_to_email_frequency" Type="Int32" />
-          <Property Name="Provider_last_time_email_sent_to_provider" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Provider_last_time_email_sent_to_provider" Type="DateTime" Nullable="true" Precision="0" />
           <Property Name="Provider_unsent_email_qeue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Provider_allows_new_clients_without_approval" Type="Int32" />
           <Property Name="Provider_required_passphrase_for_clients" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
@@ -506,7 +508,25 @@ warning 6013: The table/view 'WhenWhere.dbo.tblConstants' does not have a primar
           <EntitySet Name="tblServices" EntityType="Self.tblService" />
           <EntitySet Name="tblSuperUsers" EntityType="Self.tblSuperUser" />
           <EntitySet Name="tblTransactionHistories" EntityType="Self.tblTransactionHistory" />
+          <EntitySet Name="tblConstants" EntityType="WhenWhereDataModel.tblConstant" />
         </EntityContainer>
+        <EntityType Name="tblConstant">
+          <Key>
+            <PropertyRef Name="PK" />
+          </Key>
+          <Property Name="MONTHLY_FEE" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="NUMBER_OF_FREE_DAYS" Type="Int32" />
+          <Property Name="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_HEADER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_BODY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PUBLIC_LISTINGS_LEVEL1_CATEGORIES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PUBLIC_LISTINGS_LEVEL2_CATEGORIES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DEFAULT_YOUR_PROVIDER_HAS_CHANGED_YOUR_EVENT_MESSAGE_HEADER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="USE_OF_MISC_COLUMNS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="COLORS_TO_CYCLE_THROUGH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PK" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -749,6 +769,24 @@ warning 6013: The table/view 'WhenWhere.dbo.tblConstants' does not have a primar
                 <ScalarProperty Name="Trannsaction_sql" ColumnName="Trannsaction_sql" />
                 <ScalarProperty Name="Transaction_originator" ColumnName="Transaction_originator" />
                 <ScalarProperty Name="Transaction_associated_Provider_id" ColumnName="Transaction_associated_Provider_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConstants">
+            <EntityTypeMapping TypeName="WhenWhereDataModel.tblConstant">
+              <MappingFragment StoreEntitySet="tblConstants">
+                <ScalarProperty Name="PK" ColumnName="PK" />
+                <ScalarProperty Name="COLORS_TO_CYCLE_THROUGH" ColumnName="COLORS_TO_CYCLE_THROUGH" />
+                <ScalarProperty Name="USE_OF_MISC_COLUMNS" ColumnName="USE_OF_MISC_COLUMNS" />
+                <ScalarProperty Name="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" ColumnName="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" />
+                <ScalarProperty Name="DEFAULT_YOUR_PROVIDER_HAS_CHANGED_YOUR_EVENT_MESSAGE_HEADER" ColumnName="DEFAULT_YOUR_PROVIDER_HAS_CHANGED_YOUR_EVENT_MESSAGE_HEADER" />
+                <ScalarProperty Name="PUBLIC_LISTINGS_LEVEL2_CATEGORIES" ColumnName="PUBLIC_LISTINGS_LEVEL2_CATEGORIES" />
+                <ScalarProperty Name="PUBLIC_LISTINGS_LEVEL1_CATEGORIES" ColumnName="PUBLIC_LISTINGS_LEVEL1_CATEGORIES" />
+                <ScalarProperty Name="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_BODY" ColumnName="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_BODY" />
+                <ScalarProperty Name="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_HEADER" ColumnName="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_HEADER" />
+                <ScalarProperty Name="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" ColumnName="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" />
+                <ScalarProperty Name="NUMBER_OF_FREE_DAYS" ColumnName="NUMBER_OF_FREE_DAYS" />
+                <ScalarProperty Name="MONTHLY_FEE" ColumnName="MONTHLY_FEE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

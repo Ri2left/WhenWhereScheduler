@@ -25,7 +25,7 @@ Partial Public Class tblProvider
     Public Property Provider_latest_news As String
     Public Property Provider_current_announcement_message_for_client_dashboard As String
     Public Property Provider_to_email_frequency As Nullable(Of Integer)
-    Public Property Provider_last_time_email_sent_to_provider As Date
+    Public Property Provider_last_time_email_sent_to_provider As Nullable(Of Date)
     Public Property Provider_unsent_email_qeue As String
     Public Property Provider_allows_new_clients_without_approval As Nullable(Of Integer)
     Public Property Provider_required_passphrase_for_clients As String
