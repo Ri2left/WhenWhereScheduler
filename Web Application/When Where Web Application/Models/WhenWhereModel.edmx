@@ -9,12 +9,12 @@
           <Key>
             <PropertyRef Name="Availability_id" />
           </Key>
-          <Property Name="Availability_id" Type="int" Nullable="false" />
+          <Property Name="Availability_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Availability_provider_id" Type="int" />
           <Property Name="Availability_service_id" Type="int" />
           <Property Name="Availability_client_id" Type="int" />
-          <Property Name="Availability_start_time" Type="smalldatetime" />
-          <Property Name="Availability_end_time" Type="smalldatetime" />
+          <Property Name="Availability_start_time" Type="datetime" />
+          <Property Name="Availability_end_time" Type="datetime" />
           <Property Name="Availability_temporarily_unavailable" Type="int" />
           <Property Name="Availability_notes" Type="text" />
           <Property Name="Availability_misc1" Type="nchar" MaxLength="10" />
@@ -28,7 +28,7 @@
           <Key>
             <PropertyRef Name="Client_Reservations_id" />
           </Key>
-          <Property Name="Client_Reservations_id" Type="int" Nullable="false" />
+          <Property Name="Client_Reservations_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Client_Reservations_client_id" Type="int" />
           <Property Name="Client_Reservations_client_Availability_id" Type="int" />
           <Property Name="Client_Reservations_Service_id" Type="int" />
@@ -50,8 +50,9 @@
         </EntityType>
         <EntityType Name="tblConstants">
           <Key>
-            <PropertyRef Name="PK" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MONTHLY_FEE" Type="smallmoney" />
           <Property Name="NUMBER_OF_FREE_DAYS" Type="int" />
           <Property Name="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" Type="ntext" />
@@ -63,7 +64,6 @@
           <Property Name="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" Type="ntext" />
           <Property Name="USE_OF_MISC_COLUMNS" Type="ntext" />
           <Property Name="COLORS_TO_CYCLE_THROUGH" Type="ntext" />
-          <Property Name="PK" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblPerson">
           <Key>
@@ -89,7 +89,7 @@
           <Key>
             <PropertyRef Name="Provider_id" />
           </Key>
-          <Property Name="Provider_id" Type="int" Nullable="false" />
+          <Property Name="Provider_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Provider_joined_date" Type="smalldatetime" />
           <Property Name="Provider_payment_history" Type="nvarchar(max)" />
           <Property Name="Provider_person_id" Type="int" />
@@ -144,7 +144,7 @@
           <Key>
             <PropertyRef Name="Provider_client_id" />
           </Key>
-          <Property Name="Provider_client_id" Type="int" Nullable="false" />
+          <Property Name="Provider_client_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Provider_client_owning_client" Type="int" />
           <Property Name="Provider_person_id" Type="int" />
           <Property Name="Provider_client_cell_phone_to_text_urgent_notification_email" Type="nvarchar(max)" />
@@ -170,7 +170,7 @@
           <Key>
             <PropertyRef Name="Providers_clients_associaton_and_group_id" />
           </Key>
-          <Property Name="Providers_clients_associaton_and_group_id" Type="int" Nullable="false" />
+          <Property Name="Providers_clients_associaton_and_group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Providers_clients_associaton_and_group_provider_id" Type="int" />
           <Property Name="Providers_clients_associaton_and_group_client_id" Type="int" />
           <Property Name="Providers_clients_associaton_and_group_groups_designator_string" Type="nvarchar(max)" />
@@ -185,7 +185,7 @@
           <Key>
             <PropertyRef Name="Sales_person_id" />
           </Key>
-          <Property Name="Sales_person_id" Type="int" Nullable="false" />
+          <Property Name="Sales_person_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Sales_person_person_id" Type="int" />
           <Property Name="Sales_person_induction_note" Type="ntext" />
           <Property Name="Sales_person_payment_info" Type="nvarchar(max)" />
@@ -202,7 +202,7 @@
           <Key>
             <PropertyRef Name="Service_id" />
           </Key>
-          <Property Name="Service_id" Type="int" Nullable="false" />
+          <Property Name="Service_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Service_provider_id" Type="int" />
           <Property Name="Service_name" Type="nvarchar" MaxLength="50" />
           <Property Name="Service_max_number_of_participants" Type="int" />
@@ -233,7 +233,7 @@
           <Key>
             <PropertyRef Name="Super_user_id" />
           </Key>
-          <Property Name="Super_user_id" Type="int" Nullable="false" />
+          <Property Name="Super_user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Super_user_user_name" Type="nvarchar(max)" />
           <Property Name="Super_user_email" Type="nvarchar(max)" />
           <Property Name="Super_user_password" Type="nchar" MaxLength="10" />
@@ -245,7 +245,7 @@
           <Key>
             <PropertyRef Name="Transactoin_history_id" />
           </Key>
-          <Property Name="Transactoin_history_id" Type="int" Nullable="false" />
+          <Property Name="Transactoin_history_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Transaction_time_stamp" Type="datetime" />
           <Property Name="Trannsaction_sql" Type="ntext" />
           <Property Name="Transaction_originator" Type="nvarchar(max)" />
@@ -268,25 +268,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WhenWhereDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="tblAvailability">
-          <Key>
-            <PropertyRef Name="Availability_id" />
-          </Key>
-          <Property Name="Availability_id" Type="Int32" Nullable="false" />
-          <Property Name="Availability_provider_id" Type="Int32" />
-          <Property Name="Availability_service_id" Type="Int32" />
-          <Property Name="Availability_client_id" Type="Int32" />
-          <Property Name="Availability_start_time" Type="DateTime" Precision="0" />
-          <Property Name="Availability_end_time" Type="DateTime" Precision="0" />
-          <Property Name="Availability_temporarily_unavailable" Type="Int32" />
-          <Property Name="Availability_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Availability_misc1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Availability_misc2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Availability_misc3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Availability_misc4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Availability_misc5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Availability_tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="tblClientReservationTable">
           <Key>
             <PropertyRef Name="Client_Reservations_id" />
@@ -498,7 +479,6 @@
           <Property Name="Transaction_associated_Provider_id" Type="Int32" />
         </EntityType>
         <EntityContainer Name="WhenWhereEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tblAvailabilities" EntityType="Self.tblAvailability" />
           <EntitySet Name="tblClientReservationTables" EntityType="Self.tblClientReservationTable" />
           <EntitySet Name="tblPersons" EntityType="Self.tblPerson" />
           <EntitySet Name="tblProviders" EntityType="Self.tblProvider" />
@@ -509,10 +489,11 @@
           <EntitySet Name="tblSuperUsers" EntityType="Self.tblSuperUser" />
           <EntitySet Name="tblTransactionHistories" EntityType="Self.tblTransactionHistory" />
           <EntitySet Name="tblConstants" EntityType="WhenWhereDataModel.tblConstant" />
+          <EntitySet Name="tblAvailabilities" EntityType="WhenWhereDataModel.tblAvailability" />
         </EntityContainer>
         <EntityType Name="tblConstant">
           <Key>
-            <PropertyRef Name="PK" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="MONTHLY_FEE" Type="Decimal" Precision="10" Scale="4" />
           <Property Name="NUMBER_OF_FREE_DAYS" Type="Int32" />
@@ -525,7 +506,26 @@
           <Property Name="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="USE_OF_MISC_COLUMNS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="COLORS_TO_CYCLE_THROUGH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PK" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tblAvailability">
+          <Key>
+            <PropertyRef Name="Availability_id" />
+          </Key>
+          <Property Name="Availability_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Availability_provider_id" Type="Int32" />
+          <Property Name="Availability_service_id" Type="Int32" />
+          <Property Name="Availability_client_id" Type="Int32" />
+          <Property Name="Availability_start_time" Type="DateTime" Precision="3" />
+          <Property Name="Availability_end_time" Type="DateTime" Precision="3" />
+          <Property Name="Availability_temporarily_unavailable" Type="Int32" />
+          <Property Name="Availability_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Availability_misc1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability_misc2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability_misc3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability_misc4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability_misc5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability_tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -533,26 +533,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="WhenWhereDataModelStoreContainer" CdmEntityContainer="WhenWhereEntities">
-          <EntitySetMapping Name="tblAvailabilities">
-            <EntityTypeMapping TypeName="WhenWhereDataModel.tblAvailability">
-              <MappingFragment StoreEntitySet="tblAvailability">
-                <ScalarProperty Name="Availability_id" ColumnName="Availability_id" />
-                <ScalarProperty Name="Availability_provider_id" ColumnName="Availability_provider_id" />
-                <ScalarProperty Name="Availability_service_id" ColumnName="Availability_service_id" />
-                <ScalarProperty Name="Availability_client_id" ColumnName="Availability_client_id" />
-                <ScalarProperty Name="Availability_start_time" ColumnName="Availability_start_time" />
-                <ScalarProperty Name="Availability_end_time" ColumnName="Availability_end_time" />
-                <ScalarProperty Name="Availability_temporarily_unavailable" ColumnName="Availability_temporarily_unavailable" />
-                <ScalarProperty Name="Availability_notes" ColumnName="Availability_notes" />
-                <ScalarProperty Name="Availability_misc1" ColumnName="Availability_misc1" />
-                <ScalarProperty Name="Availability_misc2" ColumnName="Availability_misc2" />
-                <ScalarProperty Name="Availability_misc3" ColumnName="Availability_misc3" />
-                <ScalarProperty Name="Availability_misc4" ColumnName="Availability_misc4" />
-                <ScalarProperty Name="Availability_misc5" ColumnName="Availability_misc5" />
-                <ScalarProperty Name="Availability_tags" ColumnName="Availability_tags" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblClientReservationTables">
             <EntityTypeMapping TypeName="WhenWhereDataModel.tblClientReservationTable">
               <MappingFragment StoreEntitySet="tblClientReservationTable">
@@ -775,7 +755,7 @@
           <EntitySetMapping Name="tblConstants">
             <EntityTypeMapping TypeName="WhenWhereDataModel.tblConstant">
               <MappingFragment StoreEntitySet="tblConstants">
-                <ScalarProperty Name="PK" ColumnName="PK" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="COLORS_TO_CYCLE_THROUGH" ColumnName="COLORS_TO_CYCLE_THROUGH" />
                 <ScalarProperty Name="USE_OF_MISC_COLUMNS" ColumnName="USE_OF_MISC_COLUMNS" />
                 <ScalarProperty Name="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" ColumnName="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" />
@@ -787,6 +767,26 @@
                 <ScalarProperty Name="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" ColumnName="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" />
                 <ScalarProperty Name="NUMBER_OF_FREE_DAYS" ColumnName="NUMBER_OF_FREE_DAYS" />
                 <ScalarProperty Name="MONTHLY_FEE" ColumnName="MONTHLY_FEE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAvailabilities">
+            <EntityTypeMapping TypeName="WhenWhereDataModel.tblAvailability">
+              <MappingFragment StoreEntitySet="tblAvailability">
+                <ScalarProperty Name="Availability_tags" ColumnName="Availability_tags" />
+                <ScalarProperty Name="Availability_misc5" ColumnName="Availability_misc5" />
+                <ScalarProperty Name="Availability_misc4" ColumnName="Availability_misc4" />
+                <ScalarProperty Name="Availability_misc3" ColumnName="Availability_misc3" />
+                <ScalarProperty Name="Availability_misc2" ColumnName="Availability_misc2" />
+                <ScalarProperty Name="Availability_misc1" ColumnName="Availability_misc1" />
+                <ScalarProperty Name="Availability_notes" ColumnName="Availability_notes" />
+                <ScalarProperty Name="Availability_temporarily_unavailable" ColumnName="Availability_temporarily_unavailable" />
+                <ScalarProperty Name="Availability_end_time" ColumnName="Availability_end_time" />
+                <ScalarProperty Name="Availability_start_time" ColumnName="Availability_start_time" />
+                <ScalarProperty Name="Availability_client_id" ColumnName="Availability_client_id" />
+                <ScalarProperty Name="Availability_service_id" ColumnName="Availability_service_id" />
+                <ScalarProperty Name="Availability_provider_id" ColumnName="Availability_provider_id" />
+                <ScalarProperty Name="Availability_id" ColumnName="Availability_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

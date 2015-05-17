@@ -6,15 +6,7 @@ WhenWhereWebApplication
 </name>
 </assembly>
 <members>
-<member name="F:When_Where_Web_Application.Provider.FormProviderDetail">
-	<summary>
-FormProviderDetail control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:When_Where_Web_Application.Register.ErrorMessage">
+<member name="F:When_Where_Web_Application.Register.ErrorMessage">
 	<summary>
 ErrorMessage control.
 </summary>
@@ -127,6 +119,10 @@ ViewSwitcher1 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="T:When_Where_Web_Application.Util.Modal">
+	<summary>
+ Summary description for Modal
+ </summary>
 </member><member name="F:When_Where_Web_Application.Manage.SuccessMessagePlaceHolder">
 	<summary>
  SuccessMessagePlaceHolder control.
@@ -223,6 +219,118 @@ To modify move field declaration from designer file to code-behind file.
  Auto-generated field.
  To modify move field declaration from designer file to code-behind file.
  </remarks>
+</member><member name="F:When_Where_Web_Application.login1.TextBox1">
+	<summary>
+TextBox1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.login1.TextBox2">
+	<summary>
+TextBox2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.login1.btn_submi">
+	<summary>
+btn_submi control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.Provider.FormProviderDetail">
+	<summary>
+FormProviderDetail control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.Provider.CalendarAvailabilities">
+	<summary>
+CalendarAvailabilities control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.NewAvailability.lblMessage">
+	<summary>
+lblMessage control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.NewAvailability.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.NewAvailability.txtStartTime">
+	<summary>
+txtStartTime control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.NewAvailability.txtEndTime">
+	<summary>
+txtEndTime control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.NewAvailability.txtName">
+	<summary>
+txtName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.NewAvailability.txtLocation">
+	<summary>
+txtLocation control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.NewAvailability.txtProviderID">
+	<summary>
+txtProviderID control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.NewAvailability.btnOK">
+	<summary>
+btnOK control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.NewAvailability.btnCancel">
+	<summary>
+btnCancel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:When_Where_Web_Application.Login.ErrorMessage">
 	<summary>
 ErrorMessage control.

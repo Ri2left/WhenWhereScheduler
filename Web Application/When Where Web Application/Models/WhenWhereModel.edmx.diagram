@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="08ea2e9b91644e14adf8d748472e12a5" Name="Diagram1" ZoomLevel="32">
-        <EntityTypeShape EntityType="WhenWhereDataModel.tblAvailability" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="08ea2e9b91644e14adf8d748472e12a5" Name="Diagram1" ZoomLevel="85">
         <EntityTypeShape EntityType="WhenWhereDataModel.tblClientReservationTable" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereDataModel.tblPerson" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereDataModel.tblProvider" Width="3.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereDataModel.tblProviderClient" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereDataModel.tblProvidersClientsAndGroup" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereDataModel.tblProviderClient" Width="4.75" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereDataModel.tblProvidersClientsAndGroup" Width="3" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereDataModel.tblSalesPerson" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereDataModel.tblService" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereDataModel.tblService" Width="1.5" PointX="13.375" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereDataModel.tblSuperUser" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereDataModel.tblTransactionHistory" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereDataModel.tblConstant" Width="1.5" PointX="11.375" PointY="3.75" />
+        <EntityTypeShape EntityType="WhenWhereDataModel.tblTransactionHistory" Width="1.5" PointX="15.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereDataModel.tblConstant" Width="1.5" PointX="15.375" PointY="3.125" />
+        <EntityTypeShape EntityType="WhenWhereDataModel.tblAvailability" Width="1.5" PointX="11.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

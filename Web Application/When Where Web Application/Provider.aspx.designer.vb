@@ -21,4 +21,13 @@ Partial Public Class Provider
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents FormProviderDetail As Global.System.Web.UI.WebControls.FormView
+
+    '''<summary>
+    '''CalendarAvailabilities control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CalendarAvailabilities As Global.DayPilot.Web.Ui.DayPilotCalendar
 End Class

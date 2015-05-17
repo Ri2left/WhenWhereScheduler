@@ -22,6 +22,6 @@ Partial Public Class tblConstant
     Public Property DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE As String
     Public Property USE_OF_MISC_COLUMNS As String
     Public Property COLORS_TO_CYCLE_THROUGH As String
-    Public Property PK As Integer
+    Public Property ID As Integer
 
 End Class

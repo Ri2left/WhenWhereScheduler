@@ -22,7 +22,6 @@ Partial Public Class WhenWhereEntities
         Throw New UnintentionalCodeFirstException()
     End Sub
 
-    Public Overridable Property tblAvailabilities() As DbSet(Of tblAvailability)
     Public Overridable Property tblClientReservationTables() As DbSet(Of tblClientReservationTable)
     Public Overridable Property tblPersons() As DbSet(Of tblPerson)
     Public Overridable Property tblProviders() As DbSet(Of tblProvider)
@@ -33,5 +32,6 @@ Partial Public Class WhenWhereEntities
     Public Overridable Property tblSuperUsers() As DbSet(Of tblSuperUser)
     Public Overridable Property tblTransactionHistories() As DbSet(Of tblTransactionHistory)
     Public Overridable Property tblConstants() As DbSet(Of tblConstant)
+    Public Overridable Property tblAvailabilities() As DbSet(Of tblAvailability)
 
 End Class
