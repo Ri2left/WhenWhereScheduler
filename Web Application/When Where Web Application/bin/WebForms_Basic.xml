@@ -6,7 +6,15 @@ WhenWhereWebApplication
 </name>
 </assembly>
 <members>
-<member name="F:When_Where_Web_Application.Register.ErrorMessage">
+<member name="F:When_Where_Web_Application.AccountSettings.TestNotification">
+	<summary>
+TestNotification control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:When_Where_Web_Application.Register.ErrorMessage">
 	<summary>
 ErrorMessage control.
 </summary>

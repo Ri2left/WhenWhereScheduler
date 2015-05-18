@@ -46,7 +46,7 @@
                 </EmptyDataTemplate>
             </asp:formView>
             <p>
-                <a class="btn btn-default" href="">Dashboard</a><a class="btn btn-default" href="">Manage Clients</a><a class="btn btn-default" href="">Account Settings</a>
+                <a class="btn btn-default" href="">Dashboard</a><a class="btn btn-default" href="">Manage Clients</a><a class="btn btn-default" href="/ProviderLogic/AccountSettings.aspx">Account Settings</a>
             </p>
         </div>
     </div>
@@ -78,8 +78,4 @@
             <asp:Calendar runat="server"/>
         </div>
     </div>
-    
-       
-       
-
 </asp:Content>
