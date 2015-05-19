@@ -23,6 +23,51 @@ Partial Public Class AccountSettings
     Protected WithEvents txtClientEmails As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
+    '''txtAreaMyInfo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtAreaMyInfo As Global.System.Web.UI.HtmlControls.HtmlTextArea
+
+    '''<summary>
+    '''optNotifyAll control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents optNotifyAll As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
+
+    '''<summary>
+    '''optNotifyOncePerDay control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents optNotifyOncePerDay As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
+
+    '''<summary>
+    '''optNotifyOncePerWeek control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents optNotifyOncePerWeek As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
+
+    '''<summary>
+    '''optNotifyOff control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents optNotifyOff As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
+
+    '''<summary>
     '''TestNotification control.
     '''</summary>
     '''<remarks>
@@ -30,4 +75,13 @@ Partial Public Class AccountSettings
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TestNotification As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''txtAreaMyScratchPad control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtAreaMyScratchPad As Global.System.Web.UI.HtmlControls.HtmlTextArea
 End Class

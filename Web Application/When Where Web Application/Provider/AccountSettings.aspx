@@ -24,7 +24,7 @@
                     <div class="panel-heading">My Info</div>
                     <div class="panel-body">
                         <div class="form-group">
-                          <textarea class="form-control" rows="5" id="txtAreaMyInfo"></textarea>
+                          <textarea class="form-control" rows="5" onchange="javascript:__doPostBack('','')" id="txtAreaMyInfo" runat="server"></textarea>
                         </div>
                     </div>
                 </div> 
@@ -34,16 +34,16 @@
                   <div class="panel-heading">Notification Preferences</div>
                   <div class="panel-body">
                        <div class="radio">
-                          <label><input type="radio" name="optradio">Notify at Every change</label>
+                          <label><input type="radio" id="optNotifyAll" onchange="javascript:__doPostBack('','')" name="optradio" runat="server">Notify at Every change</label>
                         </div>
                         <div class="radio">
-                          <label><input type="radio" name="optradio">Notify Once a Day</label>
+                          <label><input type="radio" id="optNotifyOncePerDay" onchange="javascript:__doPostBack('','')" name="optradio" runat="server">Notify Once a Day</label>
                         </div>
                         <div class="radio">
-                          <label><input type="radio" name="optradio">Notify Once a Week</label>
+                          <label><input type="radio"  id="optNotifyOncePerWeek" onchange="javascript:__doPostBack('','')" name="optradio" runat="server">Notify Once a Week</label>
                         </div>
                         <div class="radio">
-                          <label><input type="radio" name="optradio">Turn Off ALL Notification</label>
+                          <label><input type="radio" id="optNotifyOff" onchange="javascript:__doPostBack('','')" name="optradio" runat="server">Turn Off ALL Notification</label>
                         </div>
                       <asp:LinkButton ID="TestNotification"
                             Text="Test Notification"
@@ -56,7 +56,7 @@
                     <div class="panel-heading">My Scratch Pad</div>
                     <div class="panel-body">
                         <div class="form-group">
-                          <textarea class="form-control" rows="5" id="txtAreaMyScratchPad"></textarea>
+                          <textarea class="form-control" rows="5" onchange="javascript:__doPostBack('','')" id="txtAreaMyScratchPad" runat="server"></textarea>
                         </div>
                     </div>
                 </div> 
