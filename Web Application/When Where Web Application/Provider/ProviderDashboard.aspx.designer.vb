@@ -11,14 +11,23 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AccountSettings
+Partial Public Class ProviderDashboard
 
     '''<summary>
-    '''TestNotification control.
+    '''FormProviderDetail control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TestNotification As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents FormProviderDetail As Global.System.Web.UI.WebControls.FormView
+
+    '''<summary>
+    '''CalendarAvailabilities control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CalendarAvailabilities As Global.DayPilot.Web.Ui.DayPilotCalendar
 End Class

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Welcome" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Provider.aspx.vb" Inherits="When_Where_Web_Application.Provider" %>
+﻿<%@ Page Title="Welcome" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="ProviderDashboard.aspx.vb" Inherits="When_Where_Web_Application.ProviderDashboard" %>
 <%@ Register assembly="DayPilot" namespace="DayPilot.Web.Ui" tagprefix="DayPilot" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -46,7 +46,7 @@
                 </EmptyDataTemplate>
             </asp:formView>
             <p>
-                <a class="btn btn-default" href="">Dashboard</a><a class="btn btn-default" href="">Manage Clients</a><a class="btn btn-default" href="/ProviderLogic/AccountSettings.aspx">Account Settings</a>
+                <a class="btn btn-default" href="">Dashboard</a><a class="btn btn-default" href="">Manage Clients</a><a class="btn btn-default" href="AccountSettings.aspx?id=0">Account Settings</a>
             </p>
         </div>
     </div>
@@ -68,7 +68,8 @@
                                 calendar.commandCallBack('refresh');
                             }
                         };
-                        modal.showUrl("NewAvailability.aspx?start=" + start.toStringSortable() + "&end=" + end.toStringSortable() + "&r=" + resource);
+                        //modal.showUrl("NewAvailability.aspx?start=" + start.toStringSortable() + "&end=" + end.toStringSortable() + "&r=" + resource);
+                        modal.showUrl("ProviderLogic/NewAvailability.aspx?start=" + start.toStringSortable() + "&end=" + end.toStringSortable() + "&r=" + resource);
                     }
                 </script>
                 <div><DayPilot:DayPilotCalendar ClientObjectName="calendar"  ID="CalendarAvailabilities" runat="server" /></div>

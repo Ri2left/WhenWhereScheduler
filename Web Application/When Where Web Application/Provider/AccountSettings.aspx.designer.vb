@@ -11,32 +11,23 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class login1
+Partial Public Class AccountSettings
 
     '''<summary>
-    '''TextBox1 control.
+    '''txtClientEmails control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtClientEmails As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
-    '''TextBox2 control.
+    '''TestNotification control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''btn_submi control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btn_submi As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents TestNotification As Global.System.Web.UI.WebControls.LinkButton
 End Class

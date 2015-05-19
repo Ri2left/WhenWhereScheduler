@@ -2,9 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div class="row">
     <h2>Account Settings</h2>
-      <div class="col-sm-6" style="background-color:lavender;">
-          <div class="row" style="background-color:lightgray;">
-                   Billing Info
+      <div class="col-sm-6">
+          <div class="row">
+                 <div class="panel panel-default">
+                     <div class="panel-heading">Add a Client</div>
+                     <div class="panel-body">
+                        <div class="form-group">
+                              <label for="txtClientName">Client Email(s):</label>
+                              <input type="text" runat="server" class="form-control" id="txtClientEmails" placeholder="you@you.com, me@me.com">
+                        </div>
+                        <div class="form-group"> 
+                            <button type="submit" runat="server" class="btn btn-default" OnServerClick="SubmitClientEmail_Click">Submit</button>
+                          </div>
+                       </div>
+                   </div>
             </div>
       </div>
     <div class="col-sm-6">
@@ -29,10 +40,10 @@
                           <label><input type="radio" name="optradio">Notify Once a Day</label>
                         </div>
                         <div class="radio">
-                          <label><input type="radio" name="optradio" disabled>Notify Once a Week</label>
+                          <label><input type="radio" name="optradio">Notify Once a Week</label>
                         </div>
                         <div class="radio">
-                          <label><input type="radio" name="optradio" disabled>Turn Off ALL Notification</label>
+                          <label><input type="radio" name="optradio">Turn Off ALL Notification</label>
                         </div>
                       <asp:LinkButton ID="TestNotification"
                             Text="Test Notification"
@@ -50,44 +61,7 @@
                     </div>
                 </div> 
            </div>
-          <div class="row" style="background-color:lemonchiffon;">
-                   Client Dashboard Message of the week banner
-            </div>
       </div>
-</div>
-<div class="row">
-     <div class="col-sm-12">
-         <div class="row" style="background-color:cyan;">
-                    Relations to Other Providers
-            </div>
-    </div>
-</div>
- <div class="row">
-     <div class="col-sm-6">
-         <div class="row" style="background-color:lavender;">
-                    Refer a friend for one free month
-            </div>
-    </div>
-     <div class="col-sm-6">
-         <div class="row" style="background-color:lightgray;">
-                 <div class="panel panel-default">
-                     <div class="panel-heading">Add a Client</div>
-                     <div class="panel-body">
-                        <div class="form-group">
-                          <label class="control-label col-sm-2" for="pwd">Client e-mail(s):</label>
-                          <div class="col-sm-10">          
-                            <input type="text" class="form-control" id="txtAddClientEmail" placeholder="joe@crabshack.com, john@crabshack.com">
-                          </div>
-                        </div>
-                        <div class="form-group">        
-                          <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Submit</button>
-                          </div>
-                        </div>
-                         </div>
-                     </div>
-            </div>
-    </div>
 </div>
 <div class="row">
     <div class="col-sm-12">

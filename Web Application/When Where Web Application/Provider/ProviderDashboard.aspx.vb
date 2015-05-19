@@ -7,18 +7,18 @@ Imports System.Linq.Expressions
 Imports System.Data.SqlClient
 
 '=======================================================
-'Class: Provider
+'Class: ProviderDashboard
 'Description: This class is the heart of the provider logic.
 'This is the main page that is called when a provider is logged in.
 'From this page a provider can: View Dashboard, Manage Clients, 
 'and go to account settings.
 '=======================================================
-Public Class Provider
+Public Class ProviderDashboard
     Inherits System.Web.UI.Page
 
     '=======================================================
     'Event: Page_Load
-    'Get/Set property for use with 3rd party DHXScheduler
+    'Entry point for ProviderDashboard Logic
     '=======================================================
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
@@ -112,7 +112,7 @@ Public Class Provider
 
                 providerQuery.Provider_display_short_name = txtFirstName.Text
                 providerQuery.Provider_joined_date = txtJoinedDate.Text
-               
+
 
                 database.SaveChanges()
                 'RecordDatabaseTransaction()

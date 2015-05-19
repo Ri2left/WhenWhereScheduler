@@ -11,9 +11,11 @@ Public Class NewAvailability
     'variables: start and end time
     '=======================================================
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        txtStartTime.Text = Request.QueryString("start")
-        txtEndTime.Text = Request.QueryString("end")
-        'txtProviderID = Session("")
+        If Not IsPostBack Then
+            txtStartTime.Text = Request.QueryString("start")
+            txtEndTime.Text = Request.QueryString("end")
+            'txtProviderID = Session("")
+        End If
     End Sub
     '=======================================================
     'Class: btnCancel_Click
