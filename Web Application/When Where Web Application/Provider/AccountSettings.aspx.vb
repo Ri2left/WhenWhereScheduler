@@ -33,25 +33,33 @@ Public Class AccountSettings
             'Get info from database
             Dim providerSelected As tblProvider = GetProvider()
 
-            'Provider Info Init
-            Me.txtAreaMyInfo.InnerText = providerSelected.Provider_business_details_text
+            If Not providerSelected Is Nothing Then
+                'Provider Info Init
+                Me.txtAreaMyInfo.InnerText = providerSelected.Provider_business_details_text
 
-            'Emaily Frequency Init
-            Select Case providerSelected.Provider_to_email_frequency
-                Case EMAIL_FREQUENCEY_ALL
-                    Me.optNotifyAll.Checked = True
-                Case EMAIL_FREQUENCEY_DAILY
-                    Me.optNotifyOncePerDay.Checked = True
-                Case EMAIL_FREQUENCEY_WEEKLY
-                    Me.optNotifyOncePerWeek.Checked = True
-                Case EMAIL_FREQUENCEY_NONE
-                    Me.optNotifyOff.Checked = True
-                Case Else
-                    Me.optNotifyAll.Checked = True
-            End Select
+                'Emaily Frequency Init
+                Select Case providerSelected.Provider_to_email_frequency
+                    Case EMAIL_FREQUENCEY_ALL
+                        Me.optNotifyAll.Checked = True
+                    Case EMAIL_FREQUENCEY_DAILY
+                        Me.optNotifyOncePerDay.Checked = True
+                    Case EMAIL_FREQUENCEY_WEEKLY
+                        Me.optNotifyOncePerWeek.Checked = True
+                    Case EMAIL_FREQUENCEY_NONE
+                        Me.optNotifyOff.Checked = True
+                    Case Else
+                        Me.optNotifyAll.Checked = True
+                End Select
 
-            'Scratch Pad Init
-            Me.txtAreaMyScratchPad.InnerText = providerSelected.Provider_scratch_pad_notes
+                'Scratch Pad Init
+                Me.txtAreaMyScratchPad.InnerText = providerSelected.Provider_scratch_pad_notes
+
+                'Hide Error Message
+                Me.divError.Visible = False
+
+            Else
+                Me.divError.Visible = True
+            End If
         Else
             SaveData()
         End If
@@ -83,29 +91,34 @@ Public Class AccountSettings
     Sub SaveData()
         Dim providerSelected As tblProvider = GetProvider()
 
-        'My Info
-        providerSelected.Provider_business_details_text = txtAreaMyInfo.InnerText
+        If Not providerSelected Is Nothing Then
+            'My Info
+            providerSelected.Provider_business_details_text = txtAreaMyInfo.InnerText
 
-        'Email Frequency
-        If optNotifyAll.Checked Then
-            providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_ALL
-        End If
-        If optNotifyOncePerDay.Checked Then
-            providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_DAILY
-        End If
-        If optNotifyOncePerWeek.Checked Then
-            providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_WEEKLY
-        End If
-        If optNotifyOff.Checked Then
-            providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_NONE
-        End If
+            'Email Frequency
+            If optNotifyAll.Checked Then
+                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_ALL
+            End If
+            If optNotifyOncePerDay.Checked Then
+                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_DAILY
+            End If
+            If optNotifyOncePerWeek.Checked Then
+                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_WEEKLY
+            End If
+            If optNotifyOff.Checked Then
+                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_NONE
+            End If
 
-        'Scratch Pad
-        providerSelected.Provider_scratch_pad_notes = txtAreaMyScratchPad.InnerText
+            'Scratch Pad
+            providerSelected.Provider_scratch_pad_notes = txtAreaMyScratchPad.InnerText
 
-        'Save Data
-        m_database.SaveChanges()
-        'RecordDatabaseTransaction()
+            'Save Data
+            m_database.SaveChanges()
+            'RecordDatabaseTransaction()
+        Else
+            Me.divError.Visible = True
+        End If
+        
 
     End Sub
 

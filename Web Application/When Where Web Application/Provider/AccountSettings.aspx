@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div class="row">
     <h2>Account Settings</h2>
+        </div>
+    <div class="col-sm-12">  
+        <div class="row">
+            <div class="alert alert-danger" role="alert" runat="server" id="divError" >Can not find a provider with that ID!</div>
+        </div>
+    </div>
       <div class="col-sm-6">
           <div class="row">
                  <div class="panel panel-default">
