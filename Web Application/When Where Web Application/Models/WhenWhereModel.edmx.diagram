@@ -16,6 +16,13 @@
         <EntityTypeShape EntityType="WhenWhereDataModel.tblTransactionHistory" Width="1.5" PointX="15.5" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereDataModel.tblConstant" Width="1.5" PointX="15.375" PointY="3.125" />
         <EntityTypeShape EntityType="WhenWhereDataModel.tblAvailability" Width="1.5" PointX="11.375" PointY="8.75" />
+        <EntityTypeShape EntityType="WhenWhereDataModel.AspNetRole" Width="1.5" PointX="7.375" PointY="15.5" />
+        <EntityTypeShape EntityType="WhenWhereDataModel.AspNetUserClaim" Width="1.5" PointX="11.875" PointY="14" />
+        <EntityTypeShape EntityType="WhenWhereDataModel.AspNetUserLogin" Width="1.5" PointX="11.875" PointY="16.75" />
+        <EntityTypeShape EntityType="WhenWhereDataModel.AspNetUser" Width="1.5" PointX="9.625" PointY="15" />
+        <AssociationConnector Association="WhenWhereDataModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" />
+        <AssociationConnector Association="WhenWhereDataModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="WhenWhereDataModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

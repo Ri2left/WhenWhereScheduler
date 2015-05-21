@@ -33,5 +33,9 @@ Partial Public Class WhenWhereEntities
     Public Overridable Property tblTransactionHistories() As DbSet(Of tblTransactionHistory)
     Public Overridable Property tblConstants() As DbSet(Of tblConstant)
     Public Overridable Property tblAvailabilities() As DbSet(Of tblAvailability)
+    Public Overridable Property AspNetRoles() As DbSet(Of AspNetRole)
+    Public Overridable Property AspNetUserClaims() As DbSet(Of AspNetUserClaim)
+    Public Overridable Property AspNetUserLogins() As DbSet(Of AspNetUserLogin)
+    Public Overridable Property AspNetUsers() As DbSet(Of AspNetUser)
 
 End Class

@@ -11,7 +11,7 @@ End Class
 Public Class ApplicationDbContext
     Inherits IdentityDbContext(Of ApplicationUser)
     Public Sub New()
-        MyBase.New("DefaultConnection")
+        MyBase.New("WhenWhereConnectionString")
     End Sub
 End Class
 
