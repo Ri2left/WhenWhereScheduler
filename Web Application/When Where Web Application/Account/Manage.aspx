@@ -2,7 +2,6 @@
 
 <%@ Import Namespace="When_Where_Web_Application" %>
 <%@ Import Namespace="Microsoft.AspNet.Identity" %>
-<%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
@@ -130,8 +129,6 @@
                         </tr>
                     </ItemTemplate>
                 </asp:ListView>
-
-                <uc:openauthproviders runat="server" returnurl="~/Account/Manage" />
             </section>
         </div>
     </div>

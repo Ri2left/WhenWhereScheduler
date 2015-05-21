@@ -9,7 +9,7 @@ Partial Public Class Login
     Inherits Page
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         RegisterHyperLink.NavigateUrl = "Register"
-        OpenAuthLogin.ReturnUrl = Request.QueryString("ReturnUrl")
+
         Dim returnUrl = HttpUtility.UrlEncode(Request.QueryString("ReturnUrl"))
         If Not [String].IsNullOrEmpty(returnUrl) Then
             RegisterHyperLink.NavigateUrl += "?ReturnUrl=" & returnUrl
@@ -24,6 +24,8 @@ Partial Public Class Login
             If user IsNot Nothing Then
                 IdentityHelper.SignIn(manager, user, RememberMe.Checked)
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString("ReturnUrl"), Response)
+                'Response.Redirect("/About.aspx")
+
             Else
                 FailureText.Text = "Invalid username or password."
                 ErrorMessage.Visible = True
