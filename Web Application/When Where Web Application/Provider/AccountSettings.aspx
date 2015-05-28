@@ -51,7 +51,7 @@
                         <div class="radio">
                           <label><input type="radio" id="optNotifyOff" onchange="javascript:__doPostBack('','')" name="optradio" runat="server">Turn Off ALL Notification</label>
                         </div>
-                      <asp:LinkButton ID="TestNotification"
+                      <asp:LinkButton ID="btnTestNotification"
                             Text="Test Notification"
                             RunAt="server"/>
                   </div>
@@ -68,7 +68,6 @@
                 </div> 
            </div>
       </div>
-</div>
 <div class="row">
     <div class="col-sm-12">
          <div class="row">

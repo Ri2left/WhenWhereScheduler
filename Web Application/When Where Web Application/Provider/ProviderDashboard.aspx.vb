@@ -32,6 +32,8 @@ Public Class ProviderDashboard
             CalendarAvailabilities.TimeRangeSelectedHandling = DayPilot.Web.Ui.Enums.EventClickHandlingEnum.JavaScript
             CalendarAvailabilities.TimeRangeSelectedJavaScript = "createEvent(start, end, resource);"
 
+            'CalendarAvailabilities.StartDate.Time()
+
             'Settings for modal popup when editing an event
             'DayPilotCalendar1.EventClickHandling = DayPilot.Web.Ui.Enums.EventClickHandlingEnum.JavaScript
             'DayPilotCalendar1.EventClickJavaScript = "editEvent(e)"

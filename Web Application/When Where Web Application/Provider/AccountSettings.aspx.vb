@@ -17,10 +17,6 @@ Public Class AccountSettings
 
     Private m_database As WhenWhereEntities
 
-    Private Sub AccountSettings_CommitTransaction(sender As Object, e As EventArgs) Handles Me.CommitTransaction
-
-    End Sub
-
     '=======================================================
     'Event: Page_Load
     'Entry point for Account Settings Logic
@@ -65,8 +61,8 @@ Public Class AccountSettings
         End If
     End Sub
     '=======================================================
-    'Event: Page_Load
-    'Get/Set property for use with 3rd party DHXScheduler
+    'Event: SubmitClientEmail_Click
+    'Not sure what this needs to do..
     '=======================================================
     Sub SubmitClientEmail_Click(sender As Object, e As EventArgs)
         'Not sure what this does?
@@ -84,9 +80,8 @@ Public Class AccountSettings
         Return providerSelected
     End Function
     '=======================================================
-    'Function: ServerChange
-    'Description: This parses the query string to return
-    'selected provider
+    'Function: SaveData
+    'Description: This  saves data any time something changes on the page
     '=======================================================
     Sub SaveData()
         Dim providerSelected As tblProvider = GetProvider()
@@ -121,8 +116,13 @@ Public Class AccountSettings
         
 
     End Sub
-
-    Private Sub AccountSettings_SaveStateComplete(sender As Object, e As EventArgs) Handles Me.SaveStateComplete
-
+    '=======================================================
+    'Event: btnTestNotification_Click
+    'Description: User click event, sends out a test email
+    '=======================================================
+    Private Sub btnTestNotification_Click(sender As Object, e As EventArgs) Handles btnTestNotification.Click
+        'UPDATE: not sure what this is suposed to do? Send out a test email to provider?
+        Dim providerSelected As tblProvider = GetProvider()
+        Utilities.SendEmail("emily.ligotti@gmail.com", "This is a Test!", "Did you get this e-mail?")
     End Sub
 End Class

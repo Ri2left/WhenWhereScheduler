@@ -24,7 +24,6 @@ Partial Public Class Login
             If user IsNot Nothing Then
                 IdentityHelper.SignIn(manager, user, RememberMe.Checked)
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString("ReturnUrl"), Response)
-                'Response.Redirect("/About.aspx")
 
             Else
                 FailureText.Text = "Invalid username or password."
