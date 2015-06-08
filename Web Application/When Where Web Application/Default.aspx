@@ -42,6 +42,10 @@
                             Ut enim ad minim veniam, quis nostrud</p>
                     </div>
                     <div class="col-md-4">
+                    <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/i__1Z5a9Sak"
+                            ></iframe>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <form class="form-horizontal" role="form">
