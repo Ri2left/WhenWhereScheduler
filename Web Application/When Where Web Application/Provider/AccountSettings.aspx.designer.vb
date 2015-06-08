@@ -14,76 +14,49 @@ Option Explicit On
 Partial Public Class AccountSettings
 
     '''<summary>
-    '''divError control.
+    '''optNotifyImmediately control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents divError As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents optNotifyImmediately As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
 
     '''<summary>
-    '''txtClientEmails control.
+    '''optNotifyOnceAtEventCreationAnd2hrsBefore control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtClientEmails As Global.System.Web.UI.HtmlControls.HtmlInputText
+    Protected WithEvents optNotifyOnceAtEventCreationAnd2hrsBefore As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
 
     '''<summary>
-    '''txtAreaMyInfo control.
+    '''optNotifyOnceAtEventCreationAnd24hrsBefore control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtAreaMyInfo As Global.System.Web.UI.HtmlControls.HtmlTextArea
+    Protected WithEvents optNotifyOnceAtEventCreationAnd24hrsBefore As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
 
     '''<summary>
-    '''optNotifyAll control.
+    '''optNotifyAnyChangesInLast10minutes control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents optNotifyAll As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
+    Protected WithEvents optNotifyAnyChangesInLast10minutes As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
 
     '''<summary>
-    '''optNotifyOncePerDay control.
+    '''optOnlyOncePerDay control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents optNotifyOncePerDay As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
-
-    '''<summary>
-    '''optNotifyOncePerWeek control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents optNotifyOncePerWeek As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
-
-    '''<summary>
-    '''optNotifyOff control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents optNotifyOff As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
-
-    '''<summary>
-    '''btnTestNotification control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnTestNotification As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents optOnlyOncePerDay As Global.System.Web.UI.HtmlControls.HtmlInputRadioButton
 
     '''<summary>
     '''txtAreaMyScratchPad control.

@@ -10,10 +10,10 @@
 Public Class AccountSettings
     Inherits System.Web.UI.Page
 
-    Const EMAIL_FREQUENCEY_ALL As Integer = 0
-    Const EMAIL_FREQUENCEY_DAILY As Integer = 1
-    Const EMAIL_FREQUENCEY_WEEKLY As Integer = 2
-    Const EMAIL_FREQUENCEY_NONE As Integer = 3
+    Const EMAIL_FREQUENCEY_IMMEDIATELY As Integer = 0
+    Const EMAIL_FREQUENCEY_ONCE_AT_CREATION_AND_2_HRS_BEFORE As Integer = 1
+    Const EMAIL_FREQUENCEY_ONCE_AT_CREATION_AND_24_HRS_BEFORE As Integer = 2
+    Const EMAIL_FREQUENCEY_ANY_CHANGES_IN_LAST_10_MINUTES As Integer = 3
 
     Private m_database As WhenWhereEntities
 
@@ -24,37 +24,38 @@ Public Class AccountSettings
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         m_database = New WhenWhereEntities
+        Me.MaintainScrollPositionOnPostBack = True
+
 
         If Not IsPostBack Then
             'Get info from database
             Dim providerSelected As tblProvider = GetProvider()
 
             If Not providerSelected Is Nothing Then
-                'Provider Info Init
-                Me.txtAreaMyInfo.InnerText = providerSelected.Provider_business_details_text
+
 
                 'Emaily Frequency Init
                 Select Case providerSelected.Provider_to_email_frequency
-                    Case EMAIL_FREQUENCEY_ALL
-                        Me.optNotifyAll.Checked = True
-                    Case EMAIL_FREQUENCEY_DAILY
-                        Me.optNotifyOncePerDay.Checked = True
-                    Case EMAIL_FREQUENCEY_WEEKLY
-                        Me.optNotifyOncePerWeek.Checked = True
-                    Case EMAIL_FREQUENCEY_NONE
-                        Me.optNotifyOff.Checked = True
+                    Case EMAIL_FREQUENCEY_IMMEDIATELY
+                        Me.optNotifyImmediately.Checked = True
+                    Case EMAIL_FREQUENCEY_ONCE_AT_CREATION_AND_2_HRS_BEFORE
+                        Me.optNotifyOnceAtEventCreationAnd2hrsBefore.Checked = True
+                    Case EMAIL_FREQUENCEY_ONCE_AT_CREATION_AND_24_HRS_BEFORE
+                        Me.optNotifyOnceAtEventCreationAnd24hrsBefore.Checked = True
+                    Case EMAIL_FREQUENCEY_ANY_CHANGES_IN_LAST_10_MINUTES
+                        Me.optNotifyAnyChangesInLast10minutes.Checked = True
                     Case Else
-                        Me.optNotifyAll.Checked = True
+                        'Me.optNotifyAll.Checked = True
                 End Select
 
                 'Scratch Pad Init
                 Me.txtAreaMyScratchPad.InnerText = providerSelected.Provider_scratch_pad_notes
 
                 'Hide Error Message
-                Me.divError.Visible = False
+                'Me.divError.Visible = False
 
             Else
-                Me.divError.Visible = True
+                'Me.divError.Visible = True
             End If
         Else
             SaveData()
@@ -87,42 +88,50 @@ Public Class AccountSettings
         Dim providerSelected As tblProvider = GetProvider()
 
         If Not providerSelected Is Nothing Then
-            'My Info
-            providerSelected.Provider_business_details_text = txtAreaMyInfo.InnerText
 
             'Email Frequency
-            If optNotifyAll.Checked Then
-                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_ALL
+            If optNotifyImmediately.Checked Then
+                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_IMMEDIATELY
             End If
-            If optNotifyOncePerDay.Checked Then
-                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_DAILY
+            If optNotifyOnceAtEventCreationAnd2hrsBefore.Checked Then
+                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_ONCE_AT_CREATION_AND_2_HRS_BEFORE
             End If
-            If optNotifyOncePerWeek.Checked Then
-                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_WEEKLY
+            If optNotifyOnceAtEventCreationAnd24hrsBefore.Checked Then
+                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_ONCE_AT_CREATION_AND_24_HRS_BEFORE
             End If
-            If optNotifyOff.Checked Then
-                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_NONE
+            If optNotifyAnyChangesInLast10minutes.Checked Then
+                providerSelected.Provider_to_email_frequency = EMAIL_FREQUENCEY_ANY_CHANGES_IN_LAST_10_MINUTES
             End If
 
             'Scratch Pad
-            providerSelected.Provider_scratch_pad_notes = txtAreaMyScratchPad.InnerText
+            providerSelected.Provider_scratch_pad_notes = txtAreaMyScratchPad.Value
+
+
 
             'Save Data
             m_database.SaveChanges()
             'RecordDatabaseTransaction()
         Else
-            Me.divError.Visible = True
+            'Me.divError.Visible = True
         End If
         
 
     End Sub
-    '=======================================================
-    'Event: btnTestNotification_Click
-    'Description: User click event, sends out a test email
-    '=======================================================
-    Private Sub btnTestNotification_Click(sender As Object, e As EventArgs) Handles btnTestNotification.Click
-        'UPDATE: not sure what this is suposed to do? Send out a test email to provider?
-        Dim providerSelected As tblProvider = GetProvider()
-        Utilities.SendEmail("emily.ligotti@gmail.com", "This is a Test!", "Did you get this e-mail?")
-    End Sub
+    ''=======================================================
+    ''Event: btnTestNotification_Click
+    ''Description: User click event, sends out a test email
+    ''=======================================================
+    'Private Sub btnTestNotification_Click(sender As Object, e As EventArgs) Handles btnTestNotification.Click
+    '    'UPDATE: not sure what this is suposed to do? Send out a test email to provider?
+    '    Dim providerSelected As tblProvider = GetProvider()
+    '    Utilities.SendEmail("emily.ligotti@gmail.com", "This is a Test!", "Did you get this e-mail?")
+    'End Sub
+
+    ''=======================================================
+    ''Event: TimerSave_Tick
+    ''Description: Saves Data every 3 seconds
+    ''=======================================================
+    'Private Sub TimerSave_Tick(sender As Object, e As EventArgs) Handles TimerSave.Tick
+    '    SaveData()
+    'End Sub
 End Class
