@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="Welcome" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.vb" Inherits="When_Where_Web_Application._Default" %>
+<%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
+
+    
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+ 
     <div class="section">
             <div class="container">
                 <div class="row">
@@ -31,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" >
                     <div class="col-md-4">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
                             <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
@@ -48,7 +53,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" role="form" runat="server">
                             <div class="form-group">
                                 <div class="col-sm-2">
                                     <label for="inputEmail3" class="control-label">Email</label>
@@ -74,13 +79,18 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
+                                <div class="col-sm-4">
                                     <button type="submit" class="btn btn-primary">Sign in
                                         <i class="fa fa-fw fa-table"></i>
                                     </button>
                                 </div>
+                                <div class="col-sm-8">
+                                    <section id="socialLoginForm">
+                                        <uc:openauthproviders runat="server" id="OpenAuthLogin" />
+                                    </section>
+                                </div>
                             </div>
-                        </form>
+                         </form>
                     </div>
                 </div>
             </div>
@@ -101,4 +111,5 @@
                 </div>
             </div>
         </div>
+   
 </asp:Content>

@@ -12,4 +12,13 @@ Option Explicit On
 
 
 Partial Public Class _Default
+
+    '''<summary>
+    '''OpenAuthLogin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents OpenAuthLogin As Global.When_Where_Web_Application.OpenAuthProviders
 End Class

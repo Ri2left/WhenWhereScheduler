@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="Log in" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Login.aspx.vb" Inherits="When_Where_Web_Application.Login" Async="true" %>
+<%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
+
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+     <form role="form" runat="server">
     <h2><%: Title %>.</h2>
 
     <div class="row">
@@ -49,5 +52,13 @@
                 </p>
             </section>
         </div>
+      <div class="col-md-4">
+            <section id="socialLoginForm">
+                <uc:openauthproviders runat="server" id="OpenAuthLogin" />
+            </section>
+        </div>
+    
     </div>
+   </form>
+
 </asp:Content>

@@ -66,4 +66,13 @@ Partial Public Class Login
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegisterHyperLink As Global.System.Web.UI.WebControls.HyperLink
+
+    '''<summary>
+    '''OpenAuthLogin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents OpenAuthLogin As Global.When_Where_Web_Application.OpenAuthProviders
 End Class

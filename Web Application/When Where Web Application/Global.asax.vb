@@ -9,8 +9,5 @@ Public Class Global_asax
         RouteConfig.RegisterRoutes(RouteTable.Routes)
         BundleConfig.RegisterBundles(BundleTable.Bundles)
 
-        'Initialize product database
-        'Database.SetInitializer(New ProductDatabaseInitialization)
-
     End Sub
 End Class
