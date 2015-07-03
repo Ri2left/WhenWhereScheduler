@@ -39,6 +39,7 @@ Partial Public Class RegisterExternalLogin
             Return
         End If
 
+
         If Not IsPostBack Then
             Dim manager = Context.GetOwinContext().GetUserManager(Of ApplicationUserManager)()
             Dim signInManager = Context.GetOwinContext().Get(Of ApplicationSignInManager)()

@@ -1,0 +1,1119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WhenWhereModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+          <Property Name="User_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="SessionId" />
+          </Key>
+          <Property Name="SessionId" Type="nvarchar" MaxLength="88" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Expires" Type="datetime" Nullable="false" />
+          <Property Name="LockDate" Type="datetime" Nullable="false" />
+          <Property Name="LockCookie" Type="int" Nullable="false" />
+          <Property Name="Locked" Type="bit" Nullable="false" />
+          <Property Name="SessionItem" Type="image" />
+          <Property Name="Flags" Type="int" Nullable="false" />
+          <Property Name="Timeout" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblAvailability">
+          <Key>
+            <PropertyRef Name="Availability_id" />
+          </Key>
+          <Property Name="Availability_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Availability_provider_id" Type="int" />
+          <Property Name="Availability_service_id" Type="int" />
+          <Property Name="Availability_client_id" Type="int" />
+          <Property Name="Availability_start_time" Type="datetime" />
+          <Property Name="Availability_end_time" Type="datetime" />
+          <Property Name="Availability_temporarily_unavailable" Type="int" />
+          <Property Name="Availability_notes" Type="text" />
+          <Property Name="Availability_misc1" Type="nchar" MaxLength="10" />
+          <Property Name="Availability_misc2" Type="nchar" MaxLength="10" />
+          <Property Name="Availability_misc3" Type="nchar" MaxLength="10" />
+          <Property Name="Availability_misc4" Type="nchar" MaxLength="10" />
+          <Property Name="Availability_misc5" Type="nchar" MaxLength="10" />
+          <Property Name="Availability_tags" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblClientReservationTable">
+          <Key>
+            <PropertyRef Name="Client_Reservations_id" />
+          </Key>
+          <Property Name="Client_Reservations_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client_Reservations_client_id" Type="int" />
+          <Property Name="Client_Reservations_client_Availability_id" Type="int" />
+          <Property Name="Client_Reservations_Service_id" Type="int" />
+          <Property Name="Client_Reservations_creation_date" Type="smalldatetime" />
+          <Property Name="Client_Reservations_client_notes" Type="ntext" />
+          <Property Name="Client_Reservations_provider_notes" Type="ntext" />
+          <Property Name="Client_Reservations_recurrence_type_match" Type="nvarchar(max)" />
+          <Property Name="Client_Reservations_what_they_said_they_will_bring" Type="nvarchar(max)" />
+          <Property Name="Client_Reservations_what_is_specifically_asked_of_them_to_bring" Type="nvarchar(max)" />
+          <Property Name="Client_which_provider_calendars_to_display_checked" Type="nvarchar(max)" />
+          <Property Name="Client_Reservations_has_checked_in" Type="bit" />
+          <Property Name="Client_Reservations_check_in_comments" Type="ntext" />
+          <Property Name="Client_Reservations_misc1" Type="nchar" MaxLength="10" />
+          <Property Name="Client_Reservations_misc2" Type="nchar" MaxLength="10" />
+          <Property Name="Client_Reservations_misc3" Type="nchar" MaxLength="10" />
+          <Property Name="Client_Reservations_misc4" Type="nchar" MaxLength="10" />
+          <Property Name="Client_Reservations_misc5" Type="nchar" MaxLength="10" />
+          <Property Name="Client_Reservations_tags" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblConstants">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MONTHLY_FEE" Type="smallmoney" />
+          <Property Name="NUMBER_OF_FREE_DAYS" Type="int" />
+          <Property Name="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" Type="ntext" />
+          <Property Name="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_HEADER" Type="ntext" />
+          <Property Name="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_BODY" Type="ntext" />
+          <Property Name="PUBLIC_LISTINGS_LEVEL1_CATEGORIES" Type="ntext" />
+          <Property Name="PUBLIC_LISTINGS_LEVEL2_CATEGORIES" Type="ntext" />
+          <Property Name="DEFAULT_YOUR_PROVIDER_HAS_CHANGED_YOUR_EVENT_MESSAGE_HEADER" Type="ntext" />
+          <Property Name="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" Type="ntext" />
+          <Property Name="USE_OF_MISC_COLUMNS" Type="ntext" />
+          <Property Name="COLORS_TO_CYCLE_THROUGH" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblPerson">
+          <Key>
+            <PropertyRef Name="Person_id" />
+          </Key>
+          <Property Name="Person_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Person_first_name" Type="nvarchar(max)" />
+          <Property Name="Person_last_name" Type="nvarchar(max)" />
+          <Property Name="Person_email" Type="nvarchar(max)" />
+          <Property Name="Person__password" Type="nvarchar(max)" />
+          <Property Name="Person_phone" Type="nvarchar(max)" />
+          <Property Name="Person_billing_name" Type="nvarchar(max)" />
+          <Property Name="Person_billing_address" Type="nvarchar(max)" />
+          <Property Name="Person_billing_phone" Type="nvarchar(max)" />
+          <Property Name="Person_misc1" Type="nvarchar(max)" />
+          <Property Name="Person_misc2" Type="nvarchar(max)" />
+          <Property Name="Person_misc3" Type="nvarchar(max)" />
+          <Property Name="Person_misc4" Type="nvarchar(max)" />
+          <Property Name="Person_misc5" Type="nvarchar(max)" />
+          <Property Name="Person_tags" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblProvider">
+          <Key>
+            <PropertyRef Name="Provider_id" />
+          </Key>
+          <Property Name="Provider_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Provider_joined_date" Type="smalldatetime" />
+          <Property Name="Provider_payment_history" Type="nvarchar(max)" />
+          <Property Name="Provider_person_id" Type="int" />
+          <Property Name="Provider_display_short_name" Type="nvarchar(max)" />
+          <Property Name="Provider_url_one_word_name" Type="nvarchar(max)" />
+          <Property Name="Provider_password" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_business_name" Type="nvarchar(max)" />
+          <Property Name="Provider_create_web_page_for_me" Type="int" />
+          <Property Name="Provider_business_top_logo_gif_url" Type="image" />
+          <Property Name="Provider_business_details_text" Type="ntext" />
+          <Property Name="Provider_latest_news" Type="ntext" />
+          <Property Name="Provider_current_announcement_message_for_client_dashboard" Type="ntext" />
+          <Property Name="Provider_to_email_frequency" Type="int" />
+          <Property Name="Provider_last_time_email_sent_to_provider" Type="smalldatetime" />
+          <Property Name="Provider_unsent_email_qeue" Type="ntext" />
+          <Property Name="Provider_allows_new_clients_without_approval" Type="int" />
+          <Property Name="Provider_required_passphrase_for_clients" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_business_relationship_common_password" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_scratch_pad_notes" Type="ntext" />
+          <Property Name="Provider_client_invitation_message" Type="ntext" />
+          <Property Name="Provider_use_client_invitation_in_quick_add_check_box" Type="bit" />
+          <Property Name="Provider_add_to_public_listing" Type="bit" />
+          <Property Name="Provider_public_listing_category" Type="nvarchar(max)" />
+          <Property Name="Provider_public_listing_short_message" Type="ntext" />
+          <Property Name="Provider_monthly_fee_owed_in_cents" Type="smallmoney" />
+          <Property Name="Provider_billing_person_paying_providers_bill" Type="int" />
+          <Property Name="Provider_billing_paypal_info" Type="ntext" />
+          <Property Name="Provider_billing_payment_history" Type="ntext" />
+          <Property Name="Provider_total_paid_to_date" Type="smallmoney" />
+          <Property Name="Provider_notes_to_self_scrach_pad" Type="ntext" />
+          <Property Name="Provider_super_admin_notes" Type="ntext" />
+          <Property Name="Provider_sales_person_id" Type="int" />
+          <Property Name="Provider_sales_person_commission_percentage" Type="float" />
+          <Property Name="Provider_flagged" Type="bit" />
+          <Property Name="Provider_sales_notes" Type="ntext" />
+          <Property Name="Provider_is_active" Type="bit" />
+          <Property Name="Provider_referred_emails_so_far_list" Type="ntext" />
+          <Property Name="Provider_referred_by" Type="ntext" />
+          <Property Name="Provider_referring_personal_message" Type="ntext" />
+          <Property Name="Provier_next_available_color_counter" Type="int" />
+          <Property Name="Provider_misc1" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_misc2" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_misc3" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_misc4" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_misc5" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_referred_by_email" Type="nvarchar(max)" />
+          <Property Name="Provider_referral_credits_history" Type="nvarchar(max)" />
+          <Property Name="Provider_is_searchable" Type="bit" />
+          <Property Name="Provider_tags" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblProviderClient">
+          <Key>
+            <PropertyRef Name="Provider_client_id" />
+          </Key>
+          <Property Name="Provider_client_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Provider_client_owning_client" Type="int" />
+          <Property Name="Provider_person_id" Type="int" />
+          <Property Name="Provider_client_cell_phone_to_text_urgent_notification_email" Type="nvarchar(max)" />
+          <Property Name="Provider_client_providers_notes" Type="ntext" />
+          <Property Name="Provider_client_billing_info" Type="nvarchar(max)" />
+          <Property Name="Provider_client_opt_out_of_marketing_emails" Type="bit" />
+          <Property Name="Provider_client_amount_currently_owed" Type="money" />
+          <Property Name="Provider_client_payment_history" Type="ntext" />
+          <Property Name="Provider_client_privilege_level" Type="int" />
+          <Property Name="Provider_client_is_blocked" Type="bit" />
+          <Property Name="Provider_client_misc1" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_client_misc2" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_client_misc3" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_client_misc4" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_client_misc5" Type="nchar" MaxLength="10" />
+          <Property Name="Provider_client_tags" Type="ntext" />
+          <Property Name="Provider_client_groups_table" Type="real" />
+          <Property Name="Provider_client_groups_id" Type="int" />
+          <Property Name="Provider_client_groups_provider_id" Type="int" />
+          <Property Name="Provider_client_groups" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblProvidersClientsAndGroups">
+          <Key>
+            <PropertyRef Name="Providers_clients_associaton_and_group_id" />
+          </Key>
+          <Property Name="Providers_clients_associaton_and_group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Providers_clients_associaton_and_group_provider_id" Type="int" />
+          <Property Name="Providers_clients_associaton_and_group_client_id" Type="int" />
+          <Property Name="Providers_clients_associaton_and_group_groups_designator_string" Type="nvarchar(max)" />
+          <Property Name="Providers_clients_associaton_and_group_notes_on_client" Type="ntext" />
+          <Property Name="Provider_ownershiop_associaton_table" Type="nvarchar(max)" />
+          <Property Name="Provider_ownershiop_associaton_id" Type="int" />
+          <Property Name="Provider_ownershiop_associaton_owner_provider_id" Type="int" />
+          <Property Name="Provider_ownershiop_associaton_slave_provider_id" Type="int" />
+          <Property Name="Provider_ownershiop_associaton_commom_password" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblSalesPerson">
+          <Key>
+            <PropertyRef Name="Sales_person_id" />
+          </Key>
+          <Property Name="Sales_person_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sales_person_person_id" Type="int" />
+          <Property Name="Sales_person_induction_note" Type="ntext" />
+          <Property Name="Sales_person_payment_info" Type="nvarchar(max)" />
+          <Property Name="Sales_person_payment_history" Type="nvarchar(max)" />
+          <Property Name="Sales_person_is_active" Type="bit" />
+          <Property Name="Sales_person_payment_owed" Type="smallmoney" />
+          <Property Name="Sales_person_super_admin_notes" Type="ntext" />
+          <Property Name="Sales_person_misc1" Type="nchar" MaxLength="10" />
+          <Property Name="Sales_person_misc2" Type="nchar" MaxLength="10" />
+          <Property Name="Sales_person_misc3" Type="nchar" MaxLength="10" />
+          <Property Name="Sales_person_tags" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblService">
+          <Key>
+            <PropertyRef Name="Service_id" />
+          </Key>
+          <Property Name="Service_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service_provider_id" Type="int" />
+          <Property Name="Service_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Service_max_number_of_participants" Type="int" />
+          <Property Name="Service_show_price" Type="bit" />
+          <Property Name="Service_price_in_cents" Type="smallmoney" />
+          <Property Name="Service_length_in_minutes" Type="int" />
+          <Property Name="Service_display_color" Type="nvarchar" MaxLength="50" />
+          <Property Name="Service_paypal_button_html" Type="nvarchar(max)" />
+          <Property Name="Service_show_paypal_button" Type="int" />
+          <Property Name="Service_description" Type="ntext" />
+          <Property Name="Service_is_ask_to_bring_active" Type="bit" />
+          <Property Name="Service_ask_ALL_to_bring" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Service_available_to_drop_down_value" Type="nvarchar(max)" />
+          <Property Name="Service_recurrence_type" Type="nvarchar(max)" />
+          <Property Name="Service_is_private_event" Type="bit" />
+          <Property Name="Service_changeability_policy" Type="ntext" />
+          <Property Name="Service_requires_check_in" Type="nvarchar(max)" />
+          <Property Name="Service_news_or_announcement" Type="ntext" />
+          <Property Name="Service_history_of_client_changes" Type="ntext" />
+          <Property Name="Service_misc1" Type="nchar" MaxLength="10" />
+          <Property Name="Service_misc2" Type="nchar" MaxLength="10" />
+          <Property Name="Service_misc3" Type="nchar" MaxLength="10" />
+          <Property Name="Service_misc4" Type="nchar" MaxLength="10" />
+          <Property Name="Service_misc5" Type="nchar" MaxLength="10" />
+          <Property Name="Service_tags" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblSuperUser">
+          <Key>
+            <PropertyRef Name="Super_user_id" />
+          </Key>
+          <Property Name="Super_user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Super_user_user_name" Type="nvarchar(max)" />
+          <Property Name="Super_user_email" Type="nvarchar(max)" />
+          <Property Name="Super_user_password" Type="nchar" MaxLength="10" />
+          <Property Name="Super_user_privilege_level" Type="int" />
+          <Property Name="Super_user_notes" Type="ntext" />
+          <Property Name="Super_user_misc" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblTransactionHistory">
+          <Key>
+            <PropertyRef Name="Transactoin_history_id" />
+          </Key>
+          <Property Name="Transactoin_history_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Transaction_time_stamp" Type="datetime" />
+          <Property Name="Trannsaction_sql" Type="ntext" />
+          <Property Name="Transaction_originator" Type="nvarchar(max)" />
+          <Property Name="Transaction_associated_Provider_id" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WhenWhereModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sessions" EntityType="Self.Sessions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAvailability" EntityType="Self.tblAvailability" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblClientReservationTable" EntityType="Self.tblClientReservationTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConstants" EntityType="Self.tblConstants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPerson" EntityType="Self.tblPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProvider" EntityType="Self.tblProvider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProviderClient" EntityType="Self.tblProviderClient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProvidersClientsAndGroups" EntityType="Self.tblProvidersClientsAndGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSalesPerson" EntityType="Self.tblSalesPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblService" EntityType="Self.tblService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSuperUser" EntityType="Self.tblSuperUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTransactionHistory" EntityType="Self.tblTransactionHistory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WhenWhereModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="SessionId" />
+          </Key>
+          <Property Name="SessionId" Type="String" MaxLength="88" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Expires" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LockDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LockCookie" Type="Int32" Nullable="false" />
+          <Property Name="Locked" Type="Boolean" Nullable="false" />
+          <Property Name="SessionItem" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Flags" Type="Int32" Nullable="false" />
+          <Property Name="Timeout" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblAvailability">
+          <Key>
+            <PropertyRef Name="Availability_id" />
+          </Key>
+          <Property Name="Availability_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Availability_provider_id" Type="Int32" />
+          <Property Name="Availability_service_id" Type="Int32" />
+          <Property Name="Availability_client_id" Type="Int32" />
+          <Property Name="Availability_start_time" Type="DateTime" Precision="3" />
+          <Property Name="Availability_end_time" Type="DateTime" Precision="3" />
+          <Property Name="Availability_temporarily_unavailable" Type="Int32" />
+          <Property Name="Availability_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Availability_misc1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability_misc2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability_misc3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability_misc4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability_misc5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Availability_tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblClientReservationTable">
+          <Key>
+            <PropertyRef Name="Client_Reservations_id" />
+          </Key>
+          <Property Name="Client_Reservations_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_Reservations_client_id" Type="Int32" />
+          <Property Name="Client_Reservations_client_Availability_id" Type="Int32" />
+          <Property Name="Client_Reservations_Service_id" Type="Int32" />
+          <Property Name="Client_Reservations_creation_date" Type="DateTime" Precision="0" />
+          <Property Name="Client_Reservations_client_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Reservations_provider_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Reservations_recurrence_type_match" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Reservations_what_they_said_they_will_bring" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Reservations_what_is_specifically_asked_of_them_to_bring" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Client_which_provider_calendars_to_display_checked" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Reservations_has_checked_in" Type="Boolean" />
+          <Property Name="Client_Reservations_check_in_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Reservations_misc1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Client_Reservations_misc2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Client_Reservations_misc3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Client_Reservations_misc4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Client_Reservations_misc5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Client_Reservations_tags" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblConstant">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MONTHLY_FEE" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="NUMBER_OF_FREE_DAYS" Type="Int32" />
+          <Property Name="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_HEADER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_BODY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PUBLIC_LISTINGS_LEVEL1_CATEGORIES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PUBLIC_LISTINGS_LEVEL2_CATEGORIES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DEFAULT_YOUR_PROVIDER_HAS_CHANGED_YOUR_EVENT_MESSAGE_HEADER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="USE_OF_MISC_COLUMNS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="COLORS_TO_CYCLE_THROUGH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblPerson">
+          <Key>
+            <PropertyRef Name="Person_id" />
+          </Key>
+          <Property Name="Person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Person_first_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_last_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person__password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_billing_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_billing_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_billing_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_misc1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_misc2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_misc3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_misc4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_misc5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblProvider">
+          <Key>
+            <PropertyRef Name="Provider_id" />
+          </Key>
+          <Property Name="Provider_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Provider_joined_date" Type="DateTime" Precision="0" />
+          <Property Name="Provider_payment_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_person_id" Type="Int32" />
+          <Property Name="Provider_display_short_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_url_one_word_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_business_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_create_web_page_for_me" Type="Int32" />
+          <Property Name="Provider_business_top_logo_gif_url" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Provider_business_details_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_latest_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_current_announcement_message_for_client_dashboard" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_to_email_frequency" Type="Int32" />
+          <Property Name="Provider_last_time_email_sent_to_provider" Type="DateTime" Precision="0" />
+          <Property Name="Provider_unsent_email_qeue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_allows_new_clients_without_approval" Type="Int32" />
+          <Property Name="Provider_required_passphrase_for_clients" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_business_relationship_common_password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_scratch_pad_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_client_invitation_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_use_client_invitation_in_quick_add_check_box" Type="Boolean" />
+          <Property Name="Provider_add_to_public_listing" Type="Boolean" />
+          <Property Name="Provider_public_listing_category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_public_listing_short_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_monthly_fee_owed_in_cents" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Provider_billing_person_paying_providers_bill" Type="Int32" />
+          <Property Name="Provider_billing_paypal_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_billing_payment_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_total_paid_to_date" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Provider_notes_to_self_scrach_pad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_super_admin_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_sales_person_id" Type="Int32" />
+          <Property Name="Provider_sales_person_commission_percentage" Type="Double" />
+          <Property Name="Provider_flagged" Type="Boolean" />
+          <Property Name="Provider_sales_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_is_active" Type="Boolean" />
+          <Property Name="Provider_referred_emails_so_far_list" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_referred_by" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_referring_personal_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provier_next_available_color_counter" Type="Int32" />
+          <Property Name="Provider_misc1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_misc2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_misc3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_misc4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_misc5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_referred_by_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_referral_credits_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_is_searchable" Type="Boolean" />
+          <Property Name="Provider_tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblProviderClient">
+          <Key>
+            <PropertyRef Name="Provider_client_id" />
+          </Key>
+          <Property Name="Provider_client_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Provider_client_owning_client" Type="Int32" />
+          <Property Name="Provider_person_id" Type="Int32" />
+          <Property Name="Provider_client_cell_phone_to_text_urgent_notification_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_client_providers_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_client_billing_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_client_opt_out_of_marketing_emails" Type="Boolean" />
+          <Property Name="Provider_client_amount_currently_owed" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Provider_client_payment_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_client_privilege_level" Type="Int32" />
+          <Property Name="Provider_client_is_blocked" Type="Boolean" />
+          <Property Name="Provider_client_misc1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_client_misc2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_client_misc3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_client_misc4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_client_misc5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_client_tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_client_groups_table" Type="Single" />
+          <Property Name="Provider_client_groups_id" Type="Int32" />
+          <Property Name="Provider_client_groups_provider_id" Type="Int32" />
+          <Property Name="Provider_client_groups" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblProvidersClientsAndGroup">
+          <Key>
+            <PropertyRef Name="Providers_clients_associaton_and_group_id" />
+          </Key>
+          <Property Name="Providers_clients_associaton_and_group_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Providers_clients_associaton_and_group_provider_id" Type="Int32" />
+          <Property Name="Providers_clients_associaton_and_group_client_id" Type="Int32" />
+          <Property Name="Providers_clients_associaton_and_group_groups_designator_string" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Providers_clients_associaton_and_group_notes_on_client" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_ownershiop_associaton_table" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_ownershiop_associaton_id" Type="Int32" />
+          <Property Name="Provider_ownershiop_associaton_owner_provider_id" Type="Int32" />
+          <Property Name="Provider_ownershiop_associaton_slave_provider_id" Type="Int32" />
+          <Property Name="Provider_ownershiop_associaton_commom_password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSalesPerson">
+          <Key>
+            <PropertyRef Name="Sales_person_id" />
+          </Key>
+          <Property Name="Sales_person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sales_person_person_id" Type="Int32" />
+          <Property Name="Sales_person_induction_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sales_person_payment_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sales_person_payment_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sales_person_is_active" Type="Boolean" />
+          <Property Name="Sales_person_payment_owed" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Sales_person_super_admin_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sales_person_misc1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Sales_person_misc2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Sales_person_misc3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Sales_person_tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblService">
+          <Key>
+            <PropertyRef Name="Service_id" />
+          </Key>
+          <Property Name="Service_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service_provider_id" Type="Int32" />
+          <Property Name="Service_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Service_max_number_of_participants" Type="Int32" />
+          <Property Name="Service_show_price" Type="Boolean" />
+          <Property Name="Service_price_in_cents" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Service_length_in_minutes" Type="Int32" />
+          <Property Name="Service_display_color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Service_paypal_button_html" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Service_show_paypal_button" Type="Int32" />
+          <Property Name="Service_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Service_is_ask_to_bring_active" Type="Boolean" />
+          <Property Name="Service_ask_ALL_to_bring" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Service_available_to_drop_down_value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Service_recurrence_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Service_is_private_event" Type="Boolean" />
+          <Property Name="Service_changeability_policy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Service_requires_check_in" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Service_news_or_announcement" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Service_history_of_client_changes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Service_misc1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Service_misc2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Service_misc3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Service_misc4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Service_misc5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Service_tags" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSuperUser">
+          <Key>
+            <PropertyRef Name="Super_user_id" />
+          </Key>
+          <Property Name="Super_user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Super_user_user_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Super_user_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Super_user_password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Super_user_privilege_level" Type="Int32" />
+          <Property Name="Super_user_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Super_user_misc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblTransactionHistory">
+          <Key>
+            <PropertyRef Name="Transactoin_history_id" />
+          </Key>
+          <Property Name="Transactoin_history_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Transaction_time_stamp" Type="DateTime" Precision="3" />
+          <Property Name="Trannsaction_sql" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Transaction_originator" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Transaction_associated_Provider_id" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="WhenWhereEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Sessions" EntityType="Self.Session" />
+          <EntitySet Name="tblAvailabilities" EntityType="Self.tblAvailability" />
+          <EntitySet Name="tblClientReservationTables" EntityType="Self.tblClientReservationTable" />
+          <EntitySet Name="tblConstants" EntityType="Self.tblConstant" />
+          <EntitySet Name="tblPersons" EntityType="Self.tblPerson" />
+          <EntitySet Name="tblProviders" EntityType="Self.tblProvider" />
+          <EntitySet Name="tblProviderClients" EntityType="Self.tblProviderClient" />
+          <EntitySet Name="tblProvidersClientsAndGroups" EntityType="Self.tblProvidersClientsAndGroup" />
+          <EntitySet Name="tblSalesPersons" EntityType="Self.tblSalesPerson" />
+          <EntitySet Name="tblServices" EntityType="Self.tblService" />
+          <EntitySet Name="tblSuperUsers" EntityType="Self.tblSuperUser" />
+          <EntitySet Name="tblTransactionHistories" EntityType="Self.tblTransactionHistory" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WhenWhereModelStoreContainer" CdmEntityContainer="WhenWhereEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="WhenWhereModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="WhenWhereModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="WhenWhereModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="WhenWhereModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="WhenWhereModel.Session">
+              <MappingFragment StoreEntitySet="Sessions">
+                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Expires" ColumnName="Expires" />
+                <ScalarProperty Name="LockDate" ColumnName="LockDate" />
+                <ScalarProperty Name="LockCookie" ColumnName="LockCookie" />
+                <ScalarProperty Name="Locked" ColumnName="Locked" />
+                <ScalarProperty Name="SessionItem" ColumnName="SessionItem" />
+                <ScalarProperty Name="Flags" ColumnName="Flags" />
+                <ScalarProperty Name="Timeout" ColumnName="Timeout" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAvailabilities">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblAvailability">
+              <MappingFragment StoreEntitySet="tblAvailability">
+                <ScalarProperty Name="Availability_id" ColumnName="Availability_id" />
+                <ScalarProperty Name="Availability_provider_id" ColumnName="Availability_provider_id" />
+                <ScalarProperty Name="Availability_service_id" ColumnName="Availability_service_id" />
+                <ScalarProperty Name="Availability_client_id" ColumnName="Availability_client_id" />
+                <ScalarProperty Name="Availability_start_time" ColumnName="Availability_start_time" />
+                <ScalarProperty Name="Availability_end_time" ColumnName="Availability_end_time" />
+                <ScalarProperty Name="Availability_temporarily_unavailable" ColumnName="Availability_temporarily_unavailable" />
+                <ScalarProperty Name="Availability_notes" ColumnName="Availability_notes" />
+                <ScalarProperty Name="Availability_misc1" ColumnName="Availability_misc1" />
+                <ScalarProperty Name="Availability_misc2" ColumnName="Availability_misc2" />
+                <ScalarProperty Name="Availability_misc3" ColumnName="Availability_misc3" />
+                <ScalarProperty Name="Availability_misc4" ColumnName="Availability_misc4" />
+                <ScalarProperty Name="Availability_misc5" ColumnName="Availability_misc5" />
+                <ScalarProperty Name="Availability_tags" ColumnName="Availability_tags" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblClientReservationTables">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblClientReservationTable">
+              <MappingFragment StoreEntitySet="tblClientReservationTable">
+                <ScalarProperty Name="Client_Reservations_id" ColumnName="Client_Reservations_id" />
+                <ScalarProperty Name="Client_Reservations_client_id" ColumnName="Client_Reservations_client_id" />
+                <ScalarProperty Name="Client_Reservations_client_Availability_id" ColumnName="Client_Reservations_client_Availability_id" />
+                <ScalarProperty Name="Client_Reservations_Service_id" ColumnName="Client_Reservations_Service_id" />
+                <ScalarProperty Name="Client_Reservations_creation_date" ColumnName="Client_Reservations_creation_date" />
+                <ScalarProperty Name="Client_Reservations_client_notes" ColumnName="Client_Reservations_client_notes" />
+                <ScalarProperty Name="Client_Reservations_provider_notes" ColumnName="Client_Reservations_provider_notes" />
+                <ScalarProperty Name="Client_Reservations_recurrence_type_match" ColumnName="Client_Reservations_recurrence_type_match" />
+                <ScalarProperty Name="Client_Reservations_what_they_said_they_will_bring" ColumnName="Client_Reservations_what_they_said_they_will_bring" />
+                <ScalarProperty Name="Client_Reservations_what_is_specifically_asked_of_them_to_bring" ColumnName="Client_Reservations_what_is_specifically_asked_of_them_to_bring" />
+                <ScalarProperty Name="Client_which_provider_calendars_to_display_checked" ColumnName="Client_which_provider_calendars_to_display_checked" />
+                <ScalarProperty Name="Client_Reservations_has_checked_in" ColumnName="Client_Reservations_has_checked_in" />
+                <ScalarProperty Name="Client_Reservations_check_in_comments" ColumnName="Client_Reservations_check_in_comments" />
+                <ScalarProperty Name="Client_Reservations_misc1" ColumnName="Client_Reservations_misc1" />
+                <ScalarProperty Name="Client_Reservations_misc2" ColumnName="Client_Reservations_misc2" />
+                <ScalarProperty Name="Client_Reservations_misc3" ColumnName="Client_Reservations_misc3" />
+                <ScalarProperty Name="Client_Reservations_misc4" ColumnName="Client_Reservations_misc4" />
+                <ScalarProperty Name="Client_Reservations_misc5" ColumnName="Client_Reservations_misc5" />
+                <ScalarProperty Name="Client_Reservations_tags" ColumnName="Client_Reservations_tags" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConstants">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblConstant">
+              <MappingFragment StoreEntitySet="tblConstants">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MONTHLY_FEE" ColumnName="MONTHLY_FEE" />
+                <ScalarProperty Name="NUMBER_OF_FREE_DAYS" ColumnName="NUMBER_OF_FREE_DAYS" />
+                <ScalarProperty Name="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" ColumnName="DEFAULT_PROVIDER_INVITING_CLIENT_MESSAGE" />
+                <ScalarProperty Name="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_HEADER" ColumnName="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_HEADER" />
+                <ScalarProperty Name="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_BODY" ColumnName="DEFAULT_CLIENT_INVITING_PROVIDER_MESSAGE_BODY" />
+                <ScalarProperty Name="PUBLIC_LISTINGS_LEVEL1_CATEGORIES" ColumnName="PUBLIC_LISTINGS_LEVEL1_CATEGORIES" />
+                <ScalarProperty Name="PUBLIC_LISTINGS_LEVEL2_CATEGORIES" ColumnName="PUBLIC_LISTINGS_LEVEL2_CATEGORIES" />
+                <ScalarProperty Name="DEFAULT_YOUR_PROVIDER_HAS_CHANGED_YOUR_EVENT_MESSAGE_HEADER" ColumnName="DEFAULT_YOUR_PROVIDER_HAS_CHANGED_YOUR_EVENT_MESSAGE_HEADER" />
+                <ScalarProperty Name="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" ColumnName="DEFAULT_YOUR_CLIENT_HAS_USED_OR_CHANGED_SOMETHNG_CO_CALANDER_MESSAGE" />
+                <ScalarProperty Name="USE_OF_MISC_COLUMNS" ColumnName="USE_OF_MISC_COLUMNS" />
+                <ScalarProperty Name="COLORS_TO_CYCLE_THROUGH" ColumnName="COLORS_TO_CYCLE_THROUGH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPersons">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblPerson">
+              <MappingFragment StoreEntitySet="tblPerson">
+                <ScalarProperty Name="Person_id" ColumnName="Person_id" />
+                <ScalarProperty Name="Person_first_name" ColumnName="Person_first_name" />
+                <ScalarProperty Name="Person_last_name" ColumnName="Person_last_name" />
+                <ScalarProperty Name="Person_email" ColumnName="Person_email" />
+                <ScalarProperty Name="Person__password" ColumnName="Person__password" />
+                <ScalarProperty Name="Person_phone" ColumnName="Person_phone" />
+                <ScalarProperty Name="Person_billing_name" ColumnName="Person_billing_name" />
+                <ScalarProperty Name="Person_billing_address" ColumnName="Person_billing_address" />
+                <ScalarProperty Name="Person_billing_phone" ColumnName="Person_billing_phone" />
+                <ScalarProperty Name="Person_misc1" ColumnName="Person_misc1" />
+                <ScalarProperty Name="Person_misc2" ColumnName="Person_misc2" />
+                <ScalarProperty Name="Person_misc3" ColumnName="Person_misc3" />
+                <ScalarProperty Name="Person_misc4" ColumnName="Person_misc4" />
+                <ScalarProperty Name="Person_misc5" ColumnName="Person_misc5" />
+                <ScalarProperty Name="Person_tags" ColumnName="Person_tags" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProviders">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblProvider">
+              <MappingFragment StoreEntitySet="tblProvider">
+                <ScalarProperty Name="Provider_id" ColumnName="Provider_id" />
+                <ScalarProperty Name="Provider_joined_date" ColumnName="Provider_joined_date" />
+                <ScalarProperty Name="Provider_payment_history" ColumnName="Provider_payment_history" />
+                <ScalarProperty Name="Provider_person_id" ColumnName="Provider_person_id" />
+                <ScalarProperty Name="Provider_display_short_name" ColumnName="Provider_display_short_name" />
+                <ScalarProperty Name="Provider_url_one_word_name" ColumnName="Provider_url_one_word_name" />
+                <ScalarProperty Name="Provider_password" ColumnName="Provider_password" />
+                <ScalarProperty Name="Provider_business_name" ColumnName="Provider_business_name" />
+                <ScalarProperty Name="Provider_create_web_page_for_me" ColumnName="Provider_create_web_page_for_me" />
+                <ScalarProperty Name="Provider_business_top_logo_gif_url" ColumnName="Provider_business_top_logo_gif_url" />
+                <ScalarProperty Name="Provider_business_details_text" ColumnName="Provider_business_details_text" />
+                <ScalarProperty Name="Provider_latest_news" ColumnName="Provider_latest_news" />
+                <ScalarProperty Name="Provider_current_announcement_message_for_client_dashboard" ColumnName="Provider_current_announcement_message_for_client_dashboard" />
+                <ScalarProperty Name="Provider_to_email_frequency" ColumnName="Provider_to_email_frequency" />
+                <ScalarProperty Name="Provider_last_time_email_sent_to_provider" ColumnName="Provider_last_time_email_sent_to_provider" />
+                <ScalarProperty Name="Provider_unsent_email_qeue" ColumnName="Provider_unsent_email_qeue" />
+                <ScalarProperty Name="Provider_allows_new_clients_without_approval" ColumnName="Provider_allows_new_clients_without_approval" />
+                <ScalarProperty Name="Provider_required_passphrase_for_clients" ColumnName="Provider_required_passphrase_for_clients" />
+                <ScalarProperty Name="Provider_business_relationship_common_password" ColumnName="Provider_business_relationship_common_password" />
+                <ScalarProperty Name="Provider_scratch_pad_notes" ColumnName="Provider_scratch_pad_notes" />
+                <ScalarProperty Name="Provider_client_invitation_message" ColumnName="Provider_client_invitation_message" />
+                <ScalarProperty Name="Provider_use_client_invitation_in_quick_add_check_box" ColumnName="Provider_use_client_invitation_in_quick_add_check_box" />
+                <ScalarProperty Name="Provider_add_to_public_listing" ColumnName="Provider_add_to_public_listing" />
+                <ScalarProperty Name="Provider_public_listing_category" ColumnName="Provider_public_listing_category" />
+                <ScalarProperty Name="Provider_public_listing_short_message" ColumnName="Provider_public_listing_short_message" />
+                <ScalarProperty Name="Provider_monthly_fee_owed_in_cents" ColumnName="Provider_monthly_fee_owed_in_cents" />
+                <ScalarProperty Name="Provider_billing_person_paying_providers_bill" ColumnName="Provider_billing_person_paying_providers_bill" />
+                <ScalarProperty Name="Provider_billing_paypal_info" ColumnName="Provider_billing_paypal_info" />
+                <ScalarProperty Name="Provider_billing_payment_history" ColumnName="Provider_billing_payment_history" />
+                <ScalarProperty Name="Provider_total_paid_to_date" ColumnName="Provider_total_paid_to_date" />
+                <ScalarProperty Name="Provider_notes_to_self_scrach_pad" ColumnName="Provider_notes_to_self_scrach_pad" />
+                <ScalarProperty Name="Provider_super_admin_notes" ColumnName="Provider_super_admin_notes" />
+                <ScalarProperty Name="Provider_sales_person_id" ColumnName="Provider_sales_person_id" />
+                <ScalarProperty Name="Provider_sales_person_commission_percentage" ColumnName="Provider_sales_person_commission_percentage" />
+                <ScalarProperty Name="Provider_flagged" ColumnName="Provider_flagged" />
+                <ScalarProperty Name="Provider_sales_notes" ColumnName="Provider_sales_notes" />
+                <ScalarProperty Name="Provider_is_active" ColumnName="Provider_is_active" />
+                <ScalarProperty Name="Provider_referred_emails_so_far_list" ColumnName="Provider_referred_emails_so_far_list" />
+                <ScalarProperty Name="Provider_referred_by" ColumnName="Provider_referred_by" />
+                <ScalarProperty Name="Provider_referring_personal_message" ColumnName="Provider_referring_personal_message" />
+                <ScalarProperty Name="Provier_next_available_color_counter" ColumnName="Provier_next_available_color_counter" />
+                <ScalarProperty Name="Provider_misc1" ColumnName="Provider_misc1" />
+                <ScalarProperty Name="Provider_misc2" ColumnName="Provider_misc2" />
+                <ScalarProperty Name="Provider_misc3" ColumnName="Provider_misc3" />
+                <ScalarProperty Name="Provider_misc4" ColumnName="Provider_misc4" />
+                <ScalarProperty Name="Provider_misc5" ColumnName="Provider_misc5" />
+                <ScalarProperty Name="Provider_referred_by_email" ColumnName="Provider_referred_by_email" />
+                <ScalarProperty Name="Provider_referral_credits_history" ColumnName="Provider_referral_credits_history" />
+                <ScalarProperty Name="Provider_is_searchable" ColumnName="Provider_is_searchable" />
+                <ScalarProperty Name="Provider_tags" ColumnName="Provider_tags" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProviderClients">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblProviderClient">
+              <MappingFragment StoreEntitySet="tblProviderClient">
+                <ScalarProperty Name="Provider_client_id" ColumnName="Provider_client_id" />
+                <ScalarProperty Name="Provider_client_owning_client" ColumnName="Provider_client_owning_client" />
+                <ScalarProperty Name="Provider_person_id" ColumnName="Provider_person_id" />
+                <ScalarProperty Name="Provider_client_cell_phone_to_text_urgent_notification_email" ColumnName="Provider_client_cell_phone_to_text_urgent_notification_email" />
+                <ScalarProperty Name="Provider_client_providers_notes" ColumnName="Provider_client_providers_notes" />
+                <ScalarProperty Name="Provider_client_billing_info" ColumnName="Provider_client_billing_info" />
+                <ScalarProperty Name="Provider_client_opt_out_of_marketing_emails" ColumnName="Provider_client_opt_out_of_marketing_emails" />
+                <ScalarProperty Name="Provider_client_amount_currently_owed" ColumnName="Provider_client_amount_currently_owed" />
+                <ScalarProperty Name="Provider_client_payment_history" ColumnName="Provider_client_payment_history" />
+                <ScalarProperty Name="Provider_client_privilege_level" ColumnName="Provider_client_privilege_level" />
+                <ScalarProperty Name="Provider_client_is_blocked" ColumnName="Provider_client_is_blocked" />
+                <ScalarProperty Name="Provider_client_misc1" ColumnName="Provider_client_misc1" />
+                <ScalarProperty Name="Provider_client_misc2" ColumnName="Provider_client_misc2" />
+                <ScalarProperty Name="Provider_client_misc3" ColumnName="Provider_client_misc3" />
+                <ScalarProperty Name="Provider_client_misc4" ColumnName="Provider_client_misc4" />
+                <ScalarProperty Name="Provider_client_misc5" ColumnName="Provider_client_misc5" />
+                <ScalarProperty Name="Provider_client_tags" ColumnName="Provider_client_tags" />
+                <ScalarProperty Name="Provider_client_groups_table" ColumnName="Provider_client_groups_table" />
+                <ScalarProperty Name="Provider_client_groups_id" ColumnName="Provider_client_groups_id" />
+                <ScalarProperty Name="Provider_client_groups_provider_id" ColumnName="Provider_client_groups_provider_id" />
+                <ScalarProperty Name="Provider_client_groups" ColumnName="Provider_client_groups" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProvidersClientsAndGroups">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblProvidersClientsAndGroup">
+              <MappingFragment StoreEntitySet="tblProvidersClientsAndGroups">
+                <ScalarProperty Name="Providers_clients_associaton_and_group_id" ColumnName="Providers_clients_associaton_and_group_id" />
+                <ScalarProperty Name="Providers_clients_associaton_and_group_provider_id" ColumnName="Providers_clients_associaton_and_group_provider_id" />
+                <ScalarProperty Name="Providers_clients_associaton_and_group_client_id" ColumnName="Providers_clients_associaton_and_group_client_id" />
+                <ScalarProperty Name="Providers_clients_associaton_and_group_groups_designator_string" ColumnName="Providers_clients_associaton_and_group_groups_designator_string" />
+                <ScalarProperty Name="Providers_clients_associaton_and_group_notes_on_client" ColumnName="Providers_clients_associaton_and_group_notes_on_client" />
+                <ScalarProperty Name="Provider_ownershiop_associaton_table" ColumnName="Provider_ownershiop_associaton_table" />
+                <ScalarProperty Name="Provider_ownershiop_associaton_id" ColumnName="Provider_ownershiop_associaton_id" />
+                <ScalarProperty Name="Provider_ownershiop_associaton_owner_provider_id" ColumnName="Provider_ownershiop_associaton_owner_provider_id" />
+                <ScalarProperty Name="Provider_ownershiop_associaton_slave_provider_id" ColumnName="Provider_ownershiop_associaton_slave_provider_id" />
+                <ScalarProperty Name="Provider_ownershiop_associaton_commom_password" ColumnName="Provider_ownershiop_associaton_commom_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSalesPersons">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblSalesPerson">
+              <MappingFragment StoreEntitySet="tblSalesPerson">
+                <ScalarProperty Name="Sales_person_id" ColumnName="Sales_person_id" />
+                <ScalarProperty Name="Sales_person_person_id" ColumnName="Sales_person_person_id" />
+                <ScalarProperty Name="Sales_person_induction_note" ColumnName="Sales_person_induction_note" />
+                <ScalarProperty Name="Sales_person_payment_info" ColumnName="Sales_person_payment_info" />
+                <ScalarProperty Name="Sales_person_payment_history" ColumnName="Sales_person_payment_history" />
+                <ScalarProperty Name="Sales_person_is_active" ColumnName="Sales_person_is_active" />
+                <ScalarProperty Name="Sales_person_payment_owed" ColumnName="Sales_person_payment_owed" />
+                <ScalarProperty Name="Sales_person_super_admin_notes" ColumnName="Sales_person_super_admin_notes" />
+                <ScalarProperty Name="Sales_person_misc1" ColumnName="Sales_person_misc1" />
+                <ScalarProperty Name="Sales_person_misc2" ColumnName="Sales_person_misc2" />
+                <ScalarProperty Name="Sales_person_misc3" ColumnName="Sales_person_misc3" />
+                <ScalarProperty Name="Sales_person_tags" ColumnName="Sales_person_tags" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblServices">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblService">
+              <MappingFragment StoreEntitySet="tblService">
+                <ScalarProperty Name="Service_id" ColumnName="Service_id" />
+                <ScalarProperty Name="Service_provider_id" ColumnName="Service_provider_id" />
+                <ScalarProperty Name="Service_name" ColumnName="Service_name" />
+                <ScalarProperty Name="Service_max_number_of_participants" ColumnName="Service_max_number_of_participants" />
+                <ScalarProperty Name="Service_show_price" ColumnName="Service_show_price" />
+                <ScalarProperty Name="Service_price_in_cents" ColumnName="Service_price_in_cents" />
+                <ScalarProperty Name="Service_length_in_minutes" ColumnName="Service_length_in_minutes" />
+                <ScalarProperty Name="Service_display_color" ColumnName="Service_display_color" />
+                <ScalarProperty Name="Service_paypal_button_html" ColumnName="Service_paypal_button_html" />
+                <ScalarProperty Name="Service_show_paypal_button" ColumnName="Service_show_paypal_button" />
+                <ScalarProperty Name="Service_description" ColumnName="Service_description" />
+                <ScalarProperty Name="Service_is_ask_to_bring_active" ColumnName="Service_is_ask_to_bring_active" />
+                <ScalarProperty Name="Service_ask_ALL_to_bring" ColumnName="Service_ask_ALL_to_bring" />
+                <ScalarProperty Name="Service_available_to_drop_down_value" ColumnName="Service_available_to_drop_down_value" />
+                <ScalarProperty Name="Service_recurrence_type" ColumnName="Service_recurrence_type" />
+                <ScalarProperty Name="Service_is_private_event" ColumnName="Service_is_private_event" />
+                <ScalarProperty Name="Service_changeability_policy" ColumnName="Service_changeability_policy" />
+                <ScalarProperty Name="Service_requires_check_in" ColumnName="Service_requires_check_in" />
+                <ScalarProperty Name="Service_news_or_announcement" ColumnName="Service_news_or_announcement" />
+                <ScalarProperty Name="Service_history_of_client_changes" ColumnName="Service_history_of_client_changes" />
+                <ScalarProperty Name="Service_misc1" ColumnName="Service_misc1" />
+                <ScalarProperty Name="Service_misc2" ColumnName="Service_misc2" />
+                <ScalarProperty Name="Service_misc3" ColumnName="Service_misc3" />
+                <ScalarProperty Name="Service_misc4" ColumnName="Service_misc4" />
+                <ScalarProperty Name="Service_misc5" ColumnName="Service_misc5" />
+                <ScalarProperty Name="Service_tags" ColumnName="Service_tags" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSuperUsers">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblSuperUser">
+              <MappingFragment StoreEntitySet="tblSuperUser">
+                <ScalarProperty Name="Super_user_id" ColumnName="Super_user_id" />
+                <ScalarProperty Name="Super_user_user_name" ColumnName="Super_user_user_name" />
+                <ScalarProperty Name="Super_user_email" ColumnName="Super_user_email" />
+                <ScalarProperty Name="Super_user_password" ColumnName="Super_user_password" />
+                <ScalarProperty Name="Super_user_privilege_level" ColumnName="Super_user_privilege_level" />
+                <ScalarProperty Name="Super_user_notes" ColumnName="Super_user_notes" />
+                <ScalarProperty Name="Super_user_misc" ColumnName="Super_user_misc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTransactionHistories">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblTransactionHistory">
+              <MappingFragment StoreEntitySet="tblTransactionHistory">
+                <ScalarProperty Name="Transactoin_history_id" ColumnName="Transactoin_history_id" />
+                <ScalarProperty Name="Transaction_time_stamp" ColumnName="Transaction_time_stamp" />
+                <ScalarProperty Name="Trannsaction_sql" ColumnName="Trannsaction_sql" />
+                <ScalarProperty Name="Transaction_originator" ColumnName="Transaction_originator" />
+                <ScalarProperty Name="Transaction_associated_Provider_id" ColumnName="Transaction_associated_Provider_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="WhenWhereModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

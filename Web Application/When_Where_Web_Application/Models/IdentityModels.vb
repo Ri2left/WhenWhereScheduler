@@ -40,6 +40,7 @@ Public Class IdentityHelper
 
     Public Const ProviderNameKey As String = "providerName"
     Public Shared Function GetProviderNameFromRequest(request As HttpRequest) As String
+        Debug.Write(request.QueryString.AllKeys)
         Return request.QueryString(ProviderNameKey)
     End Function
 

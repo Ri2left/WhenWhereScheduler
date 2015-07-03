@@ -45,12 +45,12 @@ Partial Public Class Startup
         '   consumerKey:= "",
         '   consumerSecret:= "")
 
-        'app.UseFacebookAuthentication(
-        '   appId:= "",
-        '   appSecret:= "")
+        app.UseFacebookAuthentication(
+           appId:="1678266289073070",
+           appSecret:="ee2baea35ddc5b1d0d0531dc908b70ea")
 
-        'app.UseGoogleAuthentication(New GoogleOAuth2AuthenticationOptions() With {
-        '   .ClientId = "",
-        '   .ClientSecret = ""})
+        app.UseGoogleAuthentication(New GoogleOAuth2AuthenticationOptions() With {
+           .ClientId = "583346189526-dar52dtu74g9onojbafpqoj82ooe4o4q.apps.googleusercontent.com",
+           .ClientSecret = "oG3QirkHrxpsht2F16z4BXEW"})
     End Sub
 End Class

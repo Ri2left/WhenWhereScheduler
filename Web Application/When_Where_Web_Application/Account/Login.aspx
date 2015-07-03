@@ -3,6 +3,7 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <form runat="server">
     <h2><%: Title %>.</h2>
 
     <div class="row">
@@ -58,8 +59,9 @@
 
         <div class="col-md-4">
             <section id="socialLoginForm">
-                <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
+                <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" ReturnUrl="~/Account/AddPhoneNumber.aspx" />
             </section>
         </div>
     </div>
+        </form>
 </asp:Content>
