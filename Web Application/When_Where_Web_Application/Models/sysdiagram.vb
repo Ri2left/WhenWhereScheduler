@@ -10,12 +10,11 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class AspNetUserClaim
-    Public Property Id As Integer
-    Public Property UserId As String
-    Public Property ClaimType As String
-    Public Property ClaimValue As String
-
-    Public Overridable Property AspNetUser As AspNetUser
+Partial Public Class sysdiagram
+    Public Property name As String
+    Public Property principal_id As Integer
+    Public Property diagram_id As Integer
+    Public Property version As Nullable(Of Integer)
+    Public Property definition As Byte()
 
 End Class

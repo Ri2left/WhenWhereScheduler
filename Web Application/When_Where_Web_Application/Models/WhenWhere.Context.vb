@@ -27,6 +27,7 @@ Partial Public Class WhenWhereEntities
     Public Overridable Property AspNetUserLogins() As DbSet(Of AspNetUserLogin)
     Public Overridable Property AspNetUsers() As DbSet(Of AspNetUser)
     Public Overridable Property Sessions() As DbSet(Of Session)
+    Public Overridable Property sysdiagrams() As DbSet(Of sysdiagram)
     Public Overridable Property tblAvailabilities() As DbSet(Of tblAvailability)
     Public Overridable Property tblClientReservationTables() As DbSet(Of tblClientReservationTable)
     Public Overridable Property tblConstants() As DbSet(Of tblConstant)

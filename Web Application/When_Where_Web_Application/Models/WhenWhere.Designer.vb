@@ -1,4 +1,4 @@
-﻿' T4 code generation is enabled for model 'C:\Projects\When Where\Web Application\When_Where_Web_Application\Models\WhenWhereModel.edmx'. 
+﻿' T4 code generation is enabled for model 'C:\Projects\When Where\Web Application\When_Where_Web_Application\Models\WhenWhere.edmx'. 
 ' To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 ' property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 ' is open in the designer.

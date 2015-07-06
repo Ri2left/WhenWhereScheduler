@@ -12,10 +12,17 @@ Imports System.Collections.Generic
 
 Partial Public Class AspNetUser
     Public Property Id As String
-    Public Property UserName As String
+    Public Property Email As String
+    Public Property EmailConfirmed As Boolean
     Public Property PasswordHash As String
     Public Property SecurityStamp As String
-    Public Property Discriminator As String
+    Public Property PhoneNumber As String
+    Public Property PhoneNumberConfirmed As Boolean
+    Public Property TwoFactorEnabled As Boolean
+    Public Property LockoutEndDateUtc As Nullable(Of Date)
+    Public Property LockoutEnabled As Boolean
+    Public Property AccessFailedCount As Integer
+    Public Property UserName As String
 
     Public Overridable Property AspNetUserClaims As ICollection(Of AspNetUserClaim) = New HashSet(Of AspNetUserClaim)
     Public Overridable Property AspNetUserLogins As ICollection(Of AspNetUserLogin) = New HashSet(Of AspNetUserLogin)

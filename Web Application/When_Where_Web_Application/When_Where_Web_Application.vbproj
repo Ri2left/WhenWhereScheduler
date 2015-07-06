@@ -221,29 +221,31 @@
     <Content Include="NewAvailability.aspx" />
     <Content Include="packages.config" />
     <Content Include="Account\Web.config" />
-    <EntityDeploy Include="Models\WhenWhereModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WhenWhereModel.Designer.vb</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\WhenWhereModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WhenWhereModel.edmx</DependentUpon>
-      <LastGenOutput>WhenWhereModel.Context.vb</LastGenOutput>
-    </Content>
-    <Content Include="Models\WhenWhereModel.edmx.diagram">
-      <DependentUpon>WhenWhereModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\WhenWhereModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WhenWhereModel.edmx</DependentUpon>
-      <LastGenOutput>WhenWhereModel.vb</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <EntityDeploy Include="Models\WhenWhere.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WhenWhere.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\WhenWhere.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WhenWhere.edmx</DependentUpon>
+      <LastGenOutput>WhenWhere.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="Models\WhenWhere.edmx.diagram">
+      <DependentUpon>WhenWhere.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\WhenWhere.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WhenWhere.edmx</DependentUpon>
+      <LastGenOutput>WhenWhere.vb</LastGenOutput>
+    </Content>
+    <None Include="My Project\PublishProfiles\whenwheredev.com - Web Deploy.pubxml" />
+    <None Include="My Project\PublishProfiles\www.whenwheredev.com.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="MainDashboard.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -290,9 +292,11 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -438,68 +442,71 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetRole.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUser.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserClaim.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserLogin.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\Session.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.vb">
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblAvailability.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblClientReservationTable.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblConstant.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblPerson.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblProvider.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblProviderClient.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblProvidersClientsAndGroup.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblSalesPerson.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblService.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblSuperUser.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblTransactionHistory.vb">
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\WhenWhereModel.Context.vb">
+    <Compile Include="Models\WhenWhere.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WhenWhereModel.Context.tt</DependentUpon>
+      <DependentUpon>WhenWhere.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\WhenWhereModel.Designer.vb">
+    <Compile Include="Models\WhenWhere.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WhenWhereModel.edmx</DependentUpon>
+      <DependentUpon>WhenWhere.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\WhenWhereModel.vb">
+    <Compile Include="Models\WhenWhere.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WhenWhereModel.tt</DependentUpon>
+      <DependentUpon>WhenWhere.tt</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

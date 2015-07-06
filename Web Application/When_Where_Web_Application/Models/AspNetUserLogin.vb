@@ -11,9 +11,9 @@ Imports System
 Imports System.Collections.Generic
 
 Partial Public Class AspNetUserLogin
-    Public Property UserId As String
     Public Property LoginProvider As String
     Public Property ProviderKey As String
+    Public Property UserId As String
 
     Public Overridable Property AspNetUser As AspNetUser
 
