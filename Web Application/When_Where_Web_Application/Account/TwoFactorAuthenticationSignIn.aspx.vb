@@ -13,13 +13,15 @@ Partial Public Class TwoFactorAuthenticationSignIn
     End Sub
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim userId = signinManager.GetVerifiedUserId()
-        If userId Is Nothing Then
-            Response.Redirect("/Account/Error", True)
+        If Not IsPostBack Then
+            Dim userId = signinManager.GetVerifiedUserId()
+            If userId Is Nothing Then
+                Response.Redirect("/Account/Error", True)
+            End If
+            Dim userFactors = manager.GetValidTwoFactorProviders(userId)
+            Providers.DataSource = userFactors.Select(Function(x) x).ToList()
+            Providers.DataBind()
         End If
-        Dim userFactors = manager.GetValidTwoFactorProviders(userId)
-        Providers.DataSource = userFactors.Select(Function(x) x).ToList()
-        Providers.DataBind()
     End Sub
 
     Protected Sub CodeSubmit_Click(sender As Object, e As EventArgs)

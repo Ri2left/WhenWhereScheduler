@@ -5,6 +5,10 @@ Imports Microsoft.AspNet.Identity.EntityFramework
 Imports Microsoft.AspNet.Identity.Owin
 Imports Microsoft.Owin
 Imports Microsoft.Owin.Security
+Imports Twilio
+Imports System.Net
+Imports System.Configuration
+Imports System.Diagnostics
 
 Public Class EmailService
     Implements IIdentityMessageService
@@ -18,7 +22,15 @@ Public Class SmsService
     Implements IIdentityMessageService
     Public Function SendAsync(message As IdentityMessage) As Task Implements IIdentityMessageService.SendAsync
         ' Plug in your SMS service here to send a text message.
+        Dim Twilio = New TwilioRestClient(ConfigurationManager.AppSettings("SMSSID"), ConfigurationManager.AppSettings("SMSAuthToken"))
+        Dim result = Twilio.SendMessage(ConfigurationManager.AppSettings("SMSPhoneNumber"), message.Destination, message.Body)
+
+        ' Status is one of Queued, Sending, Sent, Failed or null if the number is not valid
+        Trace.TraceInformation(result.Status)
+
+        ' Twilio doesn't currently have an async API, so return success.
         Return Task.FromResult(0)
+
     End Function
 End Class
 

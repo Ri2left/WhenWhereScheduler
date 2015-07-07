@@ -61,7 +61,7 @@ Partial Public Class Manage
         HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()))
 
         ' Enable this after setting up two-factor authentientication
-        'PhoneNumber.Text = If(manager.GetPhoneNumber(User.Identity.GetUserId()), String.Empty)
+        PhoneNumber.Text = If(manager.GetPhoneNumber(User.Identity.GetUserId()), String.Empty)
 
         TwoFactorEnabled = manager.GetTwoFactorEnabled(User.Identity.GetUserId())
 

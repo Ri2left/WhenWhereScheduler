@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="Verify Phone Number" Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="VerifyPhoneNumber.aspx.vb" Inherits="When_Where_Web_Application.VerifyPhoneNumber" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
- <h2><%: Title %>.</h2>
+ <form runat="server">
+    <h2><%: Title %>.</h2>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
@@ -25,4 +26,5 @@
             </div>
         </div>
     </div>
+    </form>
 </asp:Content>

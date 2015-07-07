@@ -39,4 +39,13 @@ Partial Public Class Manage
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CreatePassword As Global.System.Web.UI.WebControls.HyperLink
+
+    '''<summary>
+    '''PhoneNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PhoneNumber As Global.System.Web.UI.WebControls.Label
 End Class
