@@ -45,12 +45,12 @@ Partial Public Class Startup
         'app.UseTwitterAuthentication(
         '   consumerKey:= "",
         '   consumerSecret:= "")
-        Dim facebookAuthOptions As FacebookAuthenticationOptions = New FacebookAuthenticationOptions()
-        facebookAuthOptions.AppId = "1678266289073070"
-        facebookAuthOptions.AppSecret = "ee2baea35ddc5b1d0d0531dc908b70ea"
-        facebookAuthOptions.Scope.Add("email")
+        'Dim facebookAuthOptions As FacebookAuthenticationOptions = New FacebookAuthenticationOptions()
+        'facebookAuthOptions.AppId = "1678266289073070"
+        'facebookAuthOptions.AppSecret = "ee2baea35ddc5b1d0d0531dc908b70ea"
+        'facebookAuthOptions.Scope.Add("email")
 
-        app.UseFacebookAuthentication(facebookAuthOptions)
+        'app.UseFacebookAuthentication(facebookAuthOptions)
 
         app.UseGoogleAuthentication(New GoogleOAuth2AuthenticationOptions() With {
            .ClientId = "583346189526-dar52dtu74g9onojbafpqoj82ooe4o4q.apps.googleusercontent.com",

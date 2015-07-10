@@ -24,11 +24,53 @@
 
     </head>
     <body>
+         <form runat="server">
         <div class="container body-content">
+             <div class="row">
+                  <div class="col-md-12">
+                    <br /> <br /> <br /> <br />
+                  </div>
+            </div>
+            
+            <asp:PlaceHolder ID="Header" runat="server">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><a runat="server" href="~/">WhenWhere.org</a></h3>
+                            </div>
+                            <div class="panel-body">
+                                <h3>WhenWhere.org - Collaborative Scheduling for Business or Personal Use.&nbsp;
+                                    &nbsp;
+                                    <asp:ContentPlaceHolder ID="TryNowButton" runat="server">
+                                        <a runat="server" href="~/MainDashboard.aspx" class="btn btn-lg btn-primary">Try Using WhenWhere.org
+                                            <i class="fa fa-fw fa-lg fa-pencil-square-o"></i>
+                                        </a>
+                                    </asp:ContentPlaceHolder>
+
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </asp:PlaceHolder>
+
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             
             </asp:ContentPlaceHolder> 
-        </div>
+            <footer>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title text-center">© Copyright 2015 WhenWhere.org</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+          </div>
+        </form>
     </body>
 
 </html>

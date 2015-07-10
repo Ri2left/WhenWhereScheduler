@@ -2,7 +2,6 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <form runat="server">
      <h2>Manage your external logins.</h2>
     <asp:PlaceHolder runat="server" ID="SuccessMessagePlaceholder" Visible="false" ViewStateMode="Disabled">
             <p class="text-success"><%: SuccessMessage %></p>
@@ -40,5 +39,4 @@
     <div>
         <uc:OpenAuthProviders runat="server" ReturnUrl="~/Account/ManageLogins" />
     </div>
-        </form>
 </asp:Content>

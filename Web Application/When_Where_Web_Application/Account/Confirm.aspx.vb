@@ -11,8 +11,11 @@ Partial Public Class Confirm
     Protected Property StatusMessage() As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.Master.FindControl("TryNowButton").Visible = False
+
         Dim code As String = IdentityHelper.GetCodeFromRequest(Request)
         Dim userId As String = IdentityHelper.GetUserIdFromRequest(Request)
+
         If code IsNot Nothing AndAlso userId IsNot Nothing Then
             Dim manager = Context.GetOwinContext().GetUserManager(Of ApplicationUserManager)()
             Dim result = manager.ConfirmEmail(userId, code)

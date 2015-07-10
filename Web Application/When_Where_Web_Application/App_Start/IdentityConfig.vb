@@ -13,7 +13,12 @@ Imports System.Diagnostics
 Public Class EmailService
     Implements IIdentityMessageService
     Public Function SendAsync(message As IdentityMessage) As Task Implements IIdentityMessageService.SendAsync
-        ' Plug in your email service here to send an email.
+
+        Dim text As String = String.Format("Please click on this link to confirm your account: {0}", message.Body)
+        Dim html As String = "Please confirm your account by clicking this link: " + message.Body + ""
+       
+        SendEmail(message.Destination, message.Subject, text, html)
+
         Return Task.FromResult(0)
     End Function
 End Class
@@ -21,14 +26,14 @@ End Class
 Public Class SmsService
     Implements IIdentityMessageService
     Public Function SendAsync(message As IdentityMessage) As Task Implements IIdentityMessageService.SendAsync
-        ' Plug in your SMS service here to send a text message.
-        Dim Twilio = New TwilioRestClient(ConfigurationManager.AppSettings("SMSSID"), ConfigurationManager.AppSettings("SMSAuthToken"))
-        Dim result = Twilio.SendMessage(ConfigurationManager.AppSettings("SMSPhoneNumber"), message.Destination, message.Body)
+        '' Plug in your SMS service here to send a text message.
+        'Dim Twilio = New TwilioRestClient(ConfigurationManager.AppSettings("SMSSID"), ConfigurationManager.AppSettings("SMSAuthToken"))
+        'Dim result = Twilio.SendMessage(ConfigurationManager.AppSettings("SMSPhoneNumber"), message.Destination, message.Body)
 
-        ' Status is one of Queued, Sending, Sent, Failed or null if the number is not valid
-        Trace.TraceInformation(result.Status)
+        '' Status is one of Queued, Sending, Sent, Failed or null if the number is not valid
+        'Trace.TraceInformation(result.Status)
 
-        ' Twilio doesn't currently have an async API, so return success.
+        '' Twilio doesn't currently have an async API, so return success.
         Return Task.FromResult(0)
 
     End Function

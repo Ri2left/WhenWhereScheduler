@@ -22,6 +22,8 @@ Public Class ProviderDashboard
     '=======================================================
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
+            Me.Master.FindControl("Header").Visible = False
+
             LoadCalendarData()
 
             'Initialize Calendar

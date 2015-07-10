@@ -6,7 +6,6 @@
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
-    <form runat="server"> 
     <div>
         <asp:PlaceHolder runat="server" ID="SuccessMessagePlaceHolder" Visible="false" ViewStateMode="Disabled">
             <p class="text-success"><%: SuccessMessage %></p>
@@ -64,6 +63,5 @@
             </div>
         </div>
     </div>
-    </form>
 </asp:Content>
 

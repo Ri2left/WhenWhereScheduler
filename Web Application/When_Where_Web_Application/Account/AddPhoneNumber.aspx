@@ -2,7 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
-    <form runat="server">
     <div class="form-horizontal">
         <h4>Add a phone number</h4>
         <hr />
@@ -25,5 +24,4 @@
             </div>
         </div>
     </div>
-    </form>
 </asp:Content>

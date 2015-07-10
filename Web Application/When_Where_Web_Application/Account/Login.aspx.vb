@@ -8,15 +8,20 @@ Imports Owin
 
 Partial Public Class Login
     Inherits Page
+    Private Const m_ReturnURL = "~/MainDashboard.aspx"
+
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        RegisterHyperLink.NavigateUrl = "Register"
+
+        RegisterHyperLink.NavigateUrl = "~\Account\Register?ReturnUrl=" & m_ReturnURL
+
         ' Enable this once you have account confirmation enabled for password reset functionality
         ' ForgotPasswordHyperLink.NavigateUrl = "Forgot"
-        OpenAuthLogin.ReturnUrl = Request.QueryString("ReturnUrl")
-        Dim returnUrl = HttpUtility.UrlEncode(Request.QueryString("ReturnUrl"))
-        If Not [String].IsNullOrEmpty(returnUrl) Then
-            RegisterHyperLink.NavigateUrl += "?ReturnUrl=" & returnUrl
-        End If
+
+        'OpenAuthLogin.ReturnUrl = Request.QueryString("ReturnUrl")
+        'Dim returnUrl = HttpUtility.UrlEncode(Request.QueryString("ReturnUrl"))
+        'If Not [String].IsNullOrEmpty(returnUrl) Then
+        '    RegisterHyperLink.NavigateUrl += "?ReturnUrl=" & returnUrl
+        'End If
     End Sub
 
     Protected Sub LogIn(sender As Object, e As EventArgs)
@@ -31,14 +36,14 @@ Partial Public Class Login
 
             Select Case result
                 Case SignInStatus.Success
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString("ReturnUrl"), Response)
+                    IdentityHelper.RedirectToReturnUrl(m_ReturnURL, Response)
                     Exit Select
                 Case SignInStatus.LockedOut
                     Response.Redirect("/Account/Lockout")
                     Exit Select
                 Case SignInStatus.RequiresVerification
                     Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",
-                                                    Request.QueryString("ReturnUrl"),
+                                                    m_ReturnURL,
                                                     RememberMe.Checked),
                                       True)
                     Exit Select

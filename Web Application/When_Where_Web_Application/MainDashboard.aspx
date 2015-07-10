@@ -4,7 +4,6 @@
 <%@ Import Namespace="Microsoft.AspNet.Identity" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form runat="server">
     <div class="row">
         <br />
         <div class="col-md-8" style="text-align: left">
@@ -79,5 +78,4 @@
             <asp:Calendar runat="server"/>
         </div>
     </div>
-    </form>
 </asp:Content>
