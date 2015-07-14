@@ -5,6 +5,8 @@ Imports System.Web
 Imports System.Web.Services
 Imports System.Linq.Expressions
 Imports System.Data.SqlClient
+Imports Microsoft.AspNet.Identity.Owin
+Imports Microsoft.AspNet.Identity
 
 '=======================================================
 'Class: ProviderDashboard
@@ -15,6 +17,8 @@ Imports System.Data.SqlClient
 '=======================================================
 Public Class ProviderDashboard
     Inherits System.Web.UI.Page
+
+    Protected m_bIsEmailConfirmed As Boolean
 
     '=======================================================
     'Event: Page_Load
@@ -39,6 +43,12 @@ Public Class ProviderDashboard
             'Settings for modal popup when editing an event
             'DayPilotCalendar1.EventClickHandling = DayPilot.Web.Ui.Enums.EventClickHandlingEnum.JavaScript
             'DayPilotCalendar1.EventClickJavaScript = "editEvent(e)"
+
+            Dim userManager = HttpContext.Current.GetOwinContext.GetUserManager(Of ApplicationUserManager)()
+            m_bIsEmailConfirmed = userManager.IsEmailConfirmed(Context.User.Identity.GetUserId())
+
+
+
         End If
     End Sub
     '=======================================================

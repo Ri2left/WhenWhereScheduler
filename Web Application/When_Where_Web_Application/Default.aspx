@@ -48,9 +48,6 @@
                             </div>
                             </div>
                         </div>
-                         <p>
-                            <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
-                        </p>
                         <div class="form-group">
                             <div class="col-sm-4">
                                 <button runat="server" type="submit" onserverclick="LogIn" class="btn btn-primary">Sign in

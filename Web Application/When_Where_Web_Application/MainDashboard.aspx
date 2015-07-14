@@ -11,7 +11,8 @@
             <ItemTemplate>
             <h2><%: Title%> <%: Context.User.Identity.GetUserName()  %>.</h2>
             <p><b>Joined Date: </b> <%#:Item.Provider_joined_date%></p>
-            <p><b>Provider ID: </b> <%#:Item.Provider_id%></p>
+            <p><b>Is this user verified?: </b> <%= m_bIsEmailConfirmed%> </p>
+               
             <asp:LinkButton ID="EditButton"
                             Text="Edit"
                             CommandName="Edit"
