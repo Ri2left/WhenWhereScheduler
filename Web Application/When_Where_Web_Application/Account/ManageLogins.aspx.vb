@@ -29,6 +29,10 @@ Partial Public Class ManageLogins
     End Function
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        'Turn off display of "Try it now!" Button --------------------------------------'
+        Me.Master.FindControl("TryNowButton").Visible = False
+
+
         Dim manager = Context.GetOwinContext().GetUserManager(Of ApplicationUserManager)()
         CanRemoveExternalLogins = manager.GetLogins(User.Identity.GetUserId()).Count() > 1
 

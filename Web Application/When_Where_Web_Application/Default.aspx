@@ -20,6 +20,11 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-horizontal" role="form" runat="server">
+                        <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
+                        <p class="text-danger">
+                            <asp:Literal runat="server" ID="FailureText" />
+                        </p>
+                        </asp:PlaceHolder>
                         <div class="form-group">
                             <div class="col-sm-3">
                                 <label for="inputEmail3" class="control-label">Email</label>

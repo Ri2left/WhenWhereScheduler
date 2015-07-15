@@ -61,5 +61,6 @@ Partial Public Class tblProvider
     Public Property Provider_referral_credits_history As String
     Public Property Provider_is_searchable As Nullable(Of Boolean)
     Public Property Provider_tags As String
+    Public Property Provider_ASPUserID As String
 
 End Class

@@ -57,9 +57,11 @@ Public Class ProviderDashboard
     '=======================================================
     Protected Sub LoadCalendarData()
         Using database As New WhenWhereEntities
+
             'For all events for this provider
             Dim dataForThisProvider As IQueryable(Of tblAvailability) = database.tblAvailabilities
-            Dim strSelectedProviderID As String = Request.QueryString("id")
+            Dim strSelectedProviderID As String = 1
+
             Dim query As IEnumerable(Of tblAvailability) = (From availbility In dataForThisProvider _
                          Select availbility Where availbility.Availability_provider_id = strSelectedProviderID)
 
@@ -99,7 +101,7 @@ Public Class ProviderDashboard
     'selected provider
     '=======================================================
     Public Function GetProvider() As IQueryable(Of tblProvider)
-        Dim providerID As String = Request.QueryString("id")
+        Dim providerID As String = 1
         Dim database As New WhenWhereEntities
         Dim providerSelected As IQueryable(Of tblProvider) = database.tblProviders.Where(Function(p) p.Provider_id = providerID)
         Return providerSelected
@@ -151,4 +153,12 @@ Public Class ProviderDashboard
         End If
 
     End Sub
+    '=======================================================
+    'Function: Unnamed_LoggingOut
+    'Description: This is called to log-out current user
+    '=======================================================
+    Protected Sub Unnamed_LoggingOut(sender As Object, e As LoginCancelEventArgs)
+        Context.GetOwinContext().Authentication.SignOut()
+    End Sub
+
 End Class

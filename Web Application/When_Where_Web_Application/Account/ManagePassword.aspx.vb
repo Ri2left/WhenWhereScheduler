@@ -18,6 +18,10 @@ Partial Public Class ManagePassword
     End Function
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        'Turn off display of "Try it now!" Button --------------------------------------'
+        Me.Master.FindControl("TryNowButton").Visible = False
+
+
         Dim manager = Context.GetOwinContext().GetUserManager(Of ApplicationUserManager)()
 
         If Not IsPostBack Then

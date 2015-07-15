@@ -11,7 +11,9 @@ Partial Public Class Register
     Inherits Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
 
+        'Turn off display of "Try it now!" Button --------------------------------------'
         Me.Master.FindControl("TryNowButton").Visible = False
+
 
     End Sub
     Protected Sub CreateUser_Click(sender As Object, e As EventArgs)
@@ -21,6 +23,11 @@ Partial Public Class Register
         Dim user = New ApplicationUser() With {.UserName = userName, .Email = userName}
         Dim result = manager.Create(user, Password.Text)
         If result.Succeeded Then
+
+            'Make a new WhenWhere User for this account ----------------------------'
+            CreateNewWhenWhereUser(user)
+
+
             ' For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
             Dim code = manager.GenerateEmailConfirmationToken(user.Id)
             Dim callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request)
@@ -32,5 +39,6 @@ Partial Public Class Register
             ErrorMessage.Text = result.Errors.FirstOrDefault()
         End If
     End Sub
+
 End Class
 

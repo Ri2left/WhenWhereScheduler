@@ -4,27 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="285259acc0454ce0a6456695fb4f980c" Name="Diagram1">
+      <Diagram DiagramId="285259acc0454ce0a6456695fb4f980c" Name="Diagram1" ZoomLevel="52">
         <EntityTypeShape EntityType="WhenWhereModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereModel.AspNetUser" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereModel.Session" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereModel.sysdiagram" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereModel.tblAvailability" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereModel.tblClientReservationTable" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereModel.tblConstant" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereModel.tblPerson" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereModel.tblProvider" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereModel.tblAvailability" Width="1.5" PointX="5.625" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereModel.tblClientReservationTable" Width="1.5" PointX="7.375" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereModel.tblConstant" Width="2" PointX="7" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereModel.tblPerson" Width="1.5" PointX="12.875" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereModel.tblProviderClient" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WhenWhereModel.tblProvidersClientsAndGroup" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereModel.tblSalesPerson" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereModel.tblService" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereModel.tblSuperUser" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WhenWhereModel.tblTransactionHistory" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereModel.tblSalesPerson" Width="1.5" PointX="12.625" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereModel.tblService" Width="1.5" PointX="9.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereModel.tblSuperUser" Width="1.5" PointX="12.625" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhenWhereModel.tblTransactionHistory" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
         <AssociationConnector Association="WhenWhereModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="WhenWhereModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="WhenWhereModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WhenWhereModel.tblProvider" Width="1.5" PointX="9.875" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

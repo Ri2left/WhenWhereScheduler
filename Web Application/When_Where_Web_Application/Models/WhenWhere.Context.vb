@@ -32,12 +32,12 @@ Partial Public Class WhenWhereEntities
     Public Overridable Property tblClientReservationTables() As DbSet(Of tblClientReservationTable)
     Public Overridable Property tblConstants() As DbSet(Of tblConstant)
     Public Overridable Property tblPersons() As DbSet(Of tblPerson)
-    Public Overridable Property tblProviders() As DbSet(Of tblProvider)
     Public Overridable Property tblProviderClients() As DbSet(Of tblProviderClient)
     Public Overridable Property tblProvidersClientsAndGroups() As DbSet(Of tblProvidersClientsAndGroup)
     Public Overridable Property tblSalesPersons() As DbSet(Of tblSalesPerson)
     Public Overridable Property tblServices() As DbSet(Of tblService)
     Public Overridable Property tblSuperUsers() As DbSet(Of tblSuperUser)
     Public Overridable Property tblTransactionHistories() As DbSet(Of tblTransactionHistory)
+    Public Overridable Property tblProviders() As DbSet(Of tblProvider)
 
 End Class

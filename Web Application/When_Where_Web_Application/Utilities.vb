@@ -31,7 +31,6 @@ Public Module Utilities
 
         Dim client As SmtpClient = New System.Net.Mail.SmtpClient()
         Try
-            'Client.Send will send this message
             'client.EnableSsl = True
             client.Send(message)
         Catch ex As Exception
@@ -39,4 +38,18 @@ Public Module Utilities
         End Try
 
     End Sub
+
+
+    Public Function CreateNewWhenWhereUser(ByVal user As ApplicationUser) As Integer
+        Dim provider As New tblProvider With _
+            {.Provider_is_active = True, _
+             .Provider_joined_date = Now(), _
+             .Provider_ASPUserID = user.Id}
+
+        Dim db = New WhenWhereEntities()
+        db.tblProviders.Add(provider)
+
+        Return db.SaveChanges()
+    End Function
+
 End Module

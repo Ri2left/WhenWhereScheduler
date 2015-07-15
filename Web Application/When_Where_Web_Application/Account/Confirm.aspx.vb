@@ -11,6 +11,7 @@ Partial Public Class Confirm
     Protected Property StatusMessage() As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'Turn off display of "Try it now!" Button --------------------------------------'
         Me.Master.FindControl("TryNowButton").Visible = False
 
         Dim code As String = IdentityHelper.GetCodeFromRequest(Request)

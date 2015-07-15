@@ -56,15 +56,11 @@ Partial Public Class Manage
     Public Property LoginsCount As Integer
 
     Protected Sub Page_Load() Handles Me.Load
+        'Turn off display of "Try it now!" Button --------------------------------------'
+        Me.Master.FindControl("TryNowButton").Visible = False
+
+
         Dim manager = Context.GetOwinContext().GetUserManager(Of ApplicationUserManager)()
-
-        HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()))
-
-        ' Enable this after setting up two-factor authentientication
-        PhoneNumber.Text = If(manager.GetPhoneNumber(User.Identity.GetUserId()), String.Empty)
-
-        TwoFactorEnabled = manager.GetTwoFactorEnabled(User.Identity.GetUserId())
-
         LoginsCount = manager.GetLogins(User.Identity.GetUserId()).Count
 
         Dim authenticationManager = HttpContext.Current.GetOwinContext().Authentication

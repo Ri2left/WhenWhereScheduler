@@ -84,21 +84,30 @@ Partial Public Class RegisterExternalLogin
         Dim signInManager = Context.GetOwinContext().Get(Of ApplicationSignInManager)()
         Dim user = New ApplicationUser() With {.UserName = email.Text, .Email = email.Text}
         Dim result = manager.Create(user)
+
         If Not result.Succeeded Then
             AddErrors(result)
             Return
         End If
+
         Dim loginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo()
+
         If loginInfo Is Nothing Then
             RedirectOnFail()
             Return
         End If
+
         result = manager.AddLogin(user.Id, loginInfo.Login)
+
         If Not result.Succeeded Then
             AddErrors(result)
             Return
         End If
+
         signInManager.SignIn(user, isPersistent := False, rememberBrowser := False)
+
+        'Make a new WhenWhere User for this account ----------------------------'
+        CreateNewWhenWhereUser(user)
 
         ' For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
         ' Dim code = manager.GenerateEmailConfirmationToken(user.Id)

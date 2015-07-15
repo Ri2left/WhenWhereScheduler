@@ -214,6 +214,7 @@
           <Property Name="Provider_referral_credits_history" Type="nvarchar(max)" />
           <Property Name="Provider_is_searchable" Type="bit" />
           <Property Name="Provider_tags" Type="nvarchar(max)" />
+          <Property Name="Provider_ASPUserID" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="tblProviderClient">
           <Key>
@@ -575,61 +576,6 @@
           <Property Name="Person_misc5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Person_tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="tblProvider">
-          <Key>
-            <PropertyRef Name="Provider_id" />
-          </Key>
-          <Property Name="Provider_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Provider_joined_date" Type="DateTime" Precision="0" />
-          <Property Name="Provider_payment_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_person_id" Type="Int32" />
-          <Property Name="Provider_display_short_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_url_one_word_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Provider_business_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_create_web_page_for_me" Type="Int32" />
-          <Property Name="Provider_business_top_logo_gif_url" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Provider_business_details_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_latest_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_current_announcement_message_for_client_dashboard" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_to_email_frequency" Type="Int32" />
-          <Property Name="Provider_last_time_email_sent_to_provider" Type="DateTime" Precision="0" />
-          <Property Name="Provider_unsent_email_qeue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_allows_new_clients_without_approval" Type="Int32" />
-          <Property Name="Provider_required_passphrase_for_clients" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Provider_business_relationship_common_password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Provider_scratch_pad_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_client_invitation_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_use_client_invitation_in_quick_add_check_box" Type="Boolean" />
-          <Property Name="Provider_add_to_public_listing" Type="Boolean" />
-          <Property Name="Provider_public_listing_category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_public_listing_short_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_monthly_fee_owed_in_cents" Type="Decimal" Precision="10" Scale="4" />
-          <Property Name="Provider_billing_person_paying_providers_bill" Type="Int32" />
-          <Property Name="Provider_billing_paypal_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_billing_payment_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_total_paid_to_date" Type="Decimal" Precision="10" Scale="4" />
-          <Property Name="Provider_notes_to_self_scrach_pad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_super_admin_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_sales_person_id" Type="Int32" />
-          <Property Name="Provider_sales_person_commission_percentage" Type="Double" />
-          <Property Name="Provider_flagged" Type="Boolean" />
-          <Property Name="Provider_sales_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_is_active" Type="Boolean" />
-          <Property Name="Provider_referred_emails_so_far_list" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_referred_by" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_referring_personal_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provier_next_available_color_counter" Type="Int32" />
-          <Property Name="Provider_misc1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Provider_misc2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Provider_misc3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Provider_misc4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Provider_misc5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Provider_referred_by_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_referral_credits_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Provider_is_searchable" Type="Boolean" />
-          <Property Name="Provider_tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="tblProviderClient">
           <Key>
             <PropertyRef Name="Provider_client_id" />
@@ -784,7 +730,6 @@
           <EntitySet Name="tblClientReservationTables" EntityType="Self.tblClientReservationTable" />
           <EntitySet Name="tblConstants" EntityType="Self.tblConstant" />
           <EntitySet Name="tblPersons" EntityType="Self.tblPerson" />
-          <EntitySet Name="tblProviders" EntityType="Self.tblProvider" />
           <EntitySet Name="tblProviderClients" EntityType="Self.tblProviderClient" />
           <EntitySet Name="tblProvidersClientsAndGroups" EntityType="Self.tblProvidersClientsAndGroup" />
           <EntitySet Name="tblSalesPersons" EntityType="Self.tblSalesPerson" />
@@ -803,7 +748,64 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="tblProviders" EntityType="WhenWhereModel.tblProvider" />
         </EntityContainer>
+        <EntityType Name="tblProvider">
+          <Key>
+            <PropertyRef Name="Provider_id" />
+          </Key>
+          <Property Name="Provider_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Provider_joined_date" Type="DateTime" Precision="0" />
+          <Property Name="Provider_payment_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_person_id" Type="Int32" />
+          <Property Name="Provider_display_short_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_url_one_word_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_business_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_create_web_page_for_me" Type="Int32" />
+          <Property Name="Provider_business_top_logo_gif_url" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Provider_business_details_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_latest_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_current_announcement_message_for_client_dashboard" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_to_email_frequency" Type="Int32" />
+          <Property Name="Provider_last_time_email_sent_to_provider" Type="DateTime" Precision="0" />
+          <Property Name="Provider_unsent_email_qeue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_allows_new_clients_without_approval" Type="Int32" />
+          <Property Name="Provider_required_passphrase_for_clients" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_business_relationship_common_password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_scratch_pad_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_client_invitation_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_use_client_invitation_in_quick_add_check_box" Type="Boolean" />
+          <Property Name="Provider_add_to_public_listing" Type="Boolean" />
+          <Property Name="Provider_public_listing_category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_public_listing_short_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_monthly_fee_owed_in_cents" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Provider_billing_person_paying_providers_bill" Type="Int32" />
+          <Property Name="Provider_billing_paypal_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_billing_payment_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_total_paid_to_date" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Provider_notes_to_self_scrach_pad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_super_admin_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_sales_person_id" Type="Int32" />
+          <Property Name="Provider_sales_person_commission_percentage" Type="Double" />
+          <Property Name="Provider_flagged" Type="Boolean" />
+          <Property Name="Provider_sales_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_is_active" Type="Boolean" />
+          <Property Name="Provider_referred_emails_so_far_list" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_referred_by" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_referring_personal_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provier_next_available_color_counter" Type="Int32" />
+          <Property Name="Provider_misc1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_misc2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_misc3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_misc4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_misc5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Provider_referred_by_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_referral_credits_history" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_is_searchable" Type="Boolean" />
+          <Property Name="Provider_tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Provider_ASPUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -965,62 +967,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblProviders">
-            <EntityTypeMapping TypeName="WhenWhereModel.tblProvider">
-              <MappingFragment StoreEntitySet="tblProvider">
-                <ScalarProperty Name="Provider_id" ColumnName="Provider_id" />
-                <ScalarProperty Name="Provider_joined_date" ColumnName="Provider_joined_date" />
-                <ScalarProperty Name="Provider_payment_history" ColumnName="Provider_payment_history" />
-                <ScalarProperty Name="Provider_person_id" ColumnName="Provider_person_id" />
-                <ScalarProperty Name="Provider_display_short_name" ColumnName="Provider_display_short_name" />
-                <ScalarProperty Name="Provider_url_one_word_name" ColumnName="Provider_url_one_word_name" />
-                <ScalarProperty Name="Provider_password" ColumnName="Provider_password" />
-                <ScalarProperty Name="Provider_business_name" ColumnName="Provider_business_name" />
-                <ScalarProperty Name="Provider_create_web_page_for_me" ColumnName="Provider_create_web_page_for_me" />
-                <ScalarProperty Name="Provider_business_top_logo_gif_url" ColumnName="Provider_business_top_logo_gif_url" />
-                <ScalarProperty Name="Provider_business_details_text" ColumnName="Provider_business_details_text" />
-                <ScalarProperty Name="Provider_latest_news" ColumnName="Provider_latest_news" />
-                <ScalarProperty Name="Provider_current_announcement_message_for_client_dashboard" ColumnName="Provider_current_announcement_message_for_client_dashboard" />
-                <ScalarProperty Name="Provider_to_email_frequency" ColumnName="Provider_to_email_frequency" />
-                <ScalarProperty Name="Provider_last_time_email_sent_to_provider" ColumnName="Provider_last_time_email_sent_to_provider" />
-                <ScalarProperty Name="Provider_unsent_email_qeue" ColumnName="Provider_unsent_email_qeue" />
-                <ScalarProperty Name="Provider_allows_new_clients_without_approval" ColumnName="Provider_allows_new_clients_without_approval" />
-                <ScalarProperty Name="Provider_required_passphrase_for_clients" ColumnName="Provider_required_passphrase_for_clients" />
-                <ScalarProperty Name="Provider_business_relationship_common_password" ColumnName="Provider_business_relationship_common_password" />
-                <ScalarProperty Name="Provider_scratch_pad_notes" ColumnName="Provider_scratch_pad_notes" />
-                <ScalarProperty Name="Provider_client_invitation_message" ColumnName="Provider_client_invitation_message" />
-                <ScalarProperty Name="Provider_use_client_invitation_in_quick_add_check_box" ColumnName="Provider_use_client_invitation_in_quick_add_check_box" />
-                <ScalarProperty Name="Provider_add_to_public_listing" ColumnName="Provider_add_to_public_listing" />
-                <ScalarProperty Name="Provider_public_listing_category" ColumnName="Provider_public_listing_category" />
-                <ScalarProperty Name="Provider_public_listing_short_message" ColumnName="Provider_public_listing_short_message" />
-                <ScalarProperty Name="Provider_monthly_fee_owed_in_cents" ColumnName="Provider_monthly_fee_owed_in_cents" />
-                <ScalarProperty Name="Provider_billing_person_paying_providers_bill" ColumnName="Provider_billing_person_paying_providers_bill" />
-                <ScalarProperty Name="Provider_billing_paypal_info" ColumnName="Provider_billing_paypal_info" />
-                <ScalarProperty Name="Provider_billing_payment_history" ColumnName="Provider_billing_payment_history" />
-                <ScalarProperty Name="Provider_total_paid_to_date" ColumnName="Provider_total_paid_to_date" />
-                <ScalarProperty Name="Provider_notes_to_self_scrach_pad" ColumnName="Provider_notes_to_self_scrach_pad" />
-                <ScalarProperty Name="Provider_super_admin_notes" ColumnName="Provider_super_admin_notes" />
-                <ScalarProperty Name="Provider_sales_person_id" ColumnName="Provider_sales_person_id" />
-                <ScalarProperty Name="Provider_sales_person_commission_percentage" ColumnName="Provider_sales_person_commission_percentage" />
-                <ScalarProperty Name="Provider_flagged" ColumnName="Provider_flagged" />
-                <ScalarProperty Name="Provider_sales_notes" ColumnName="Provider_sales_notes" />
-                <ScalarProperty Name="Provider_is_active" ColumnName="Provider_is_active" />
-                <ScalarProperty Name="Provider_referred_emails_so_far_list" ColumnName="Provider_referred_emails_so_far_list" />
-                <ScalarProperty Name="Provider_referred_by" ColumnName="Provider_referred_by" />
-                <ScalarProperty Name="Provider_referring_personal_message" ColumnName="Provider_referring_personal_message" />
-                <ScalarProperty Name="Provier_next_available_color_counter" ColumnName="Provier_next_available_color_counter" />
-                <ScalarProperty Name="Provider_misc1" ColumnName="Provider_misc1" />
-                <ScalarProperty Name="Provider_misc2" ColumnName="Provider_misc2" />
-                <ScalarProperty Name="Provider_misc3" ColumnName="Provider_misc3" />
-                <ScalarProperty Name="Provider_misc4" ColumnName="Provider_misc4" />
-                <ScalarProperty Name="Provider_misc5" ColumnName="Provider_misc5" />
-                <ScalarProperty Name="Provider_referred_by_email" ColumnName="Provider_referred_by_email" />
-                <ScalarProperty Name="Provider_referral_credits_history" ColumnName="Provider_referral_credits_history" />
-                <ScalarProperty Name="Provider_is_searchable" ColumnName="Provider_is_searchable" />
-                <ScalarProperty Name="Provider_tags" ColumnName="Provider_tags" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblProviderClients">
             <EntityTypeMapping TypeName="WhenWhereModel.tblProviderClient">
               <MappingFragment StoreEntitySet="tblProviderClient">
@@ -1146,6 +1092,63 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="tblProviders">
+            <EntityTypeMapping TypeName="WhenWhereModel.tblProvider">
+              <MappingFragment StoreEntitySet="tblProvider">
+                <ScalarProperty Name="Provider_ASPUserID" ColumnName="Provider_ASPUserID" />
+                <ScalarProperty Name="Provider_tags" ColumnName="Provider_tags" />
+                <ScalarProperty Name="Provider_is_searchable" ColumnName="Provider_is_searchable" />
+                <ScalarProperty Name="Provider_referral_credits_history" ColumnName="Provider_referral_credits_history" />
+                <ScalarProperty Name="Provider_referred_by_email" ColumnName="Provider_referred_by_email" />
+                <ScalarProperty Name="Provider_misc5" ColumnName="Provider_misc5" />
+                <ScalarProperty Name="Provider_misc4" ColumnName="Provider_misc4" />
+                <ScalarProperty Name="Provider_misc3" ColumnName="Provider_misc3" />
+                <ScalarProperty Name="Provider_misc2" ColumnName="Provider_misc2" />
+                <ScalarProperty Name="Provider_misc1" ColumnName="Provider_misc1" />
+                <ScalarProperty Name="Provier_next_available_color_counter" ColumnName="Provier_next_available_color_counter" />
+                <ScalarProperty Name="Provider_referring_personal_message" ColumnName="Provider_referring_personal_message" />
+                <ScalarProperty Name="Provider_referred_by" ColumnName="Provider_referred_by" />
+                <ScalarProperty Name="Provider_referred_emails_so_far_list" ColumnName="Provider_referred_emails_so_far_list" />
+                <ScalarProperty Name="Provider_is_active" ColumnName="Provider_is_active" />
+                <ScalarProperty Name="Provider_sales_notes" ColumnName="Provider_sales_notes" />
+                <ScalarProperty Name="Provider_flagged" ColumnName="Provider_flagged" />
+                <ScalarProperty Name="Provider_sales_person_commission_percentage" ColumnName="Provider_sales_person_commission_percentage" />
+                <ScalarProperty Name="Provider_sales_person_id" ColumnName="Provider_sales_person_id" />
+                <ScalarProperty Name="Provider_super_admin_notes" ColumnName="Provider_super_admin_notes" />
+                <ScalarProperty Name="Provider_notes_to_self_scrach_pad" ColumnName="Provider_notes_to_self_scrach_pad" />
+                <ScalarProperty Name="Provider_total_paid_to_date" ColumnName="Provider_total_paid_to_date" />
+                <ScalarProperty Name="Provider_billing_payment_history" ColumnName="Provider_billing_payment_history" />
+                <ScalarProperty Name="Provider_billing_paypal_info" ColumnName="Provider_billing_paypal_info" />
+                <ScalarProperty Name="Provider_billing_person_paying_providers_bill" ColumnName="Provider_billing_person_paying_providers_bill" />
+                <ScalarProperty Name="Provider_monthly_fee_owed_in_cents" ColumnName="Provider_monthly_fee_owed_in_cents" />
+                <ScalarProperty Name="Provider_public_listing_short_message" ColumnName="Provider_public_listing_short_message" />
+                <ScalarProperty Name="Provider_public_listing_category" ColumnName="Provider_public_listing_category" />
+                <ScalarProperty Name="Provider_add_to_public_listing" ColumnName="Provider_add_to_public_listing" />
+                <ScalarProperty Name="Provider_use_client_invitation_in_quick_add_check_box" ColumnName="Provider_use_client_invitation_in_quick_add_check_box" />
+                <ScalarProperty Name="Provider_client_invitation_message" ColumnName="Provider_client_invitation_message" />
+                <ScalarProperty Name="Provider_scratch_pad_notes" ColumnName="Provider_scratch_pad_notes" />
+                <ScalarProperty Name="Provider_business_relationship_common_password" ColumnName="Provider_business_relationship_common_password" />
+                <ScalarProperty Name="Provider_required_passphrase_for_clients" ColumnName="Provider_required_passphrase_for_clients" />
+                <ScalarProperty Name="Provider_allows_new_clients_without_approval" ColumnName="Provider_allows_new_clients_without_approval" />
+                <ScalarProperty Name="Provider_unsent_email_qeue" ColumnName="Provider_unsent_email_qeue" />
+                <ScalarProperty Name="Provider_last_time_email_sent_to_provider" ColumnName="Provider_last_time_email_sent_to_provider" />
+                <ScalarProperty Name="Provider_to_email_frequency" ColumnName="Provider_to_email_frequency" />
+                <ScalarProperty Name="Provider_current_announcement_message_for_client_dashboard" ColumnName="Provider_current_announcement_message_for_client_dashboard" />
+                <ScalarProperty Name="Provider_latest_news" ColumnName="Provider_latest_news" />
+                <ScalarProperty Name="Provider_business_details_text" ColumnName="Provider_business_details_text" />
+                <ScalarProperty Name="Provider_business_top_logo_gif_url" ColumnName="Provider_business_top_logo_gif_url" />
+                <ScalarProperty Name="Provider_create_web_page_for_me" ColumnName="Provider_create_web_page_for_me" />
+                <ScalarProperty Name="Provider_business_name" ColumnName="Provider_business_name" />
+                <ScalarProperty Name="Provider_password" ColumnName="Provider_password" />
+                <ScalarProperty Name="Provider_url_one_word_name" ColumnName="Provider_url_one_word_name" />
+                <ScalarProperty Name="Provider_display_short_name" ColumnName="Provider_display_short_name" />
+                <ScalarProperty Name="Provider_person_id" ColumnName="Provider_person_id" />
+                <ScalarProperty Name="Provider_payment_history" ColumnName="Provider_payment_history" />
+                <ScalarProperty Name="Provider_joined_date" ColumnName="Provider_joined_date" />
+                <ScalarProperty Name="Provider_id" ColumnName="Provider_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

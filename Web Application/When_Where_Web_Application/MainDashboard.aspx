@@ -5,11 +5,22 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
-        <br />
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-right"> <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" /></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <div class="row">
         <div class="col-md-8" style="text-align: left">
            <asp:FormView ID="FormProviderDetail" runat="server" ItemType="When_Where_Web_Application.tblProvider" SelectMethod="GetProvider" UpdateMethod="UpdateButton_Click" DataKeyNames="Provider_id" RenderOuterTable ="false">
             <ItemTemplate>
-            <h2><%: Title%> <%: Context.User.Identity.GetUserName()  %>.</h2>
+            
+
+            <h2><%: Title%> <a runat="server" href="~/Account/Manage" title="Manage your account"><%: Context.User.Identity.GetUserName()  %></a>.
+            </h2>
             <p><b>Joined Date: </b> <%#:Item.Provider_joined_date%></p>
             <p><b>Is this user verified?: </b> <%= m_bIsEmailConfirmed%> </p>
                
@@ -45,7 +56,7 @@
                   </table>                 
                 </EditItemTemplate>   
                 <EmptyDataTemplate>
-                    There is provider with that id.
+                    There is no provider with that id.
                 </EmptyDataTemplate>
             </asp:formView>
         </div>
