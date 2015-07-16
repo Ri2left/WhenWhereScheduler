@@ -68,10 +68,10 @@ Partial Public Class Manage
         If Not IsPostBack Then
             ' Determine the sections to render
             If HasPassword(manager) Then
-              ChangePassword.Visible = True
+                ChangePassword.Visible = True
             Else
-              CreatePassword.Visible = True
-              ChangePassword.Visible = False
+                CreatePassword.Visible = True
+                ChangePassword.Visible = False
             End If
 
             ' Render success message
@@ -80,10 +80,10 @@ Partial Public Class Manage
                 ' Strip the query string from action
                 Form.Action = ResolveUrl("~/Account/Manage")
 
-                SuccessMessage = If(message = "ChangePwdSuccess", "Your password has been changed.", 
-                    If(message = "SetPwdSuccess", "Your password has been set.", 
-                    If(message = "RemoveLoginSuccess", "The account was removed.", 
-                    If(message = "AddPhoneNumberSuccess", "Phone number has been added", 
+                SuccessMessage = If(message = "ChangePwdSuccess", "Your password has been changed.",
+                    If(message = "SetPwdSuccess", "Your password has been set.",
+                    If(message = "RemoveLoginSuccess", "The account was removed.",
+                    If(message = "AddPhoneNumberSuccess", "Phone number has been added",
                     If(message = "RemovePhoneNumberSuccess", "Phone number was removed", String.Empty)))))
                 SuccessMessagePlaceHolder.Visible = Not String.IsNullOrEmpty(SuccessMessage)
             End If
@@ -106,7 +106,7 @@ Partial Public Class Manage
         End If
         Dim userInfo = manager.FindById(User.Identity.GetUserId())
         If userInfo IsNot Nothing Then
-            signInManager.SignIn(userInfo, isPersistent := False, rememberBrowser := False)
+            signInManager.SignIn(userInfo, isPersistent:=False, rememberBrowser:=False)
             Response.Redirect("/Account/Manage?m=RemovePhoneNumberSuccess")
         End If
     End Sub

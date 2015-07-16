@@ -4,15 +4,33 @@
 <%@ Import Namespace="Microsoft.AspNet.Identity" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title text-right"> <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" /></h3>
-                        </div>
+     <div class="row">
+        <div class="col-md-12">
+             <h3 class="text-right">
+             <i class="fa fa-sign-out text-info"></i><asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log out" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" /></h3>
+        </div>  
+    
+    </div>  
+    <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 text-left">
                     </div>
+                    <ul class="lead nav nav-tabs" role="tablist">
+                        <li class="active">
+                            <a href="Dashboard.html">Dashboard<i class="fa fa-border fa-fw fa-table pull-right text-success"></i></a>
+                        </li>
+                        <li>
+                            <a href="Manage Resources.html">Manage Resources<i class="-plus fa fa-border fa-fw fa-user-plus pull-right s text-warning"></i></a>
+                        </li>
+                        <li >
+                            <a href="#">Account Settings<i class="fa fa-border fa-fw fa-wrench pull-right text-danger"></i></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </div>
+   
     <div class="row">
         <div class="col-md-8" style="text-align: left">
            <asp:FormView ID="FormProviderDetail" runat="server" ItemType="When_Where_Web_Application.tblProvider" SelectMethod="GetProvider" UpdateMethod="UpdateButton_Click" DataKeyNames="Provider_id" RenderOuterTable ="false">

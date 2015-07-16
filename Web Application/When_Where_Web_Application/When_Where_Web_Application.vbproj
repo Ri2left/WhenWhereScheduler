@@ -200,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AccountSettings.aspx" />
     <Content Include="Account\AccountSettings.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
@@ -306,6 +307,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountSettings.aspx.designer.vb">
+      <DependentUpon>AccountSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountSettings.aspx.vb">
+      <DependentUpon>AccountSettings.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Account\AccountSettings.aspx.designer.vb">
       <DependentUpon>AccountSettings.aspx</DependentUpon>
     </Compile>

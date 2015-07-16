@@ -8,7 +8,11 @@ Imports System.Net.Mime
 'include sending email or logging data to a database.
 '=======================================================
 Public Module Utilities
-
+    '=======================================================
+    'Method: SendEmail
+    'Description: Given a to address (me@me.com, you@you.com, him@him.com),
+    ' subject string, and message text (in HTML and plain), sends out an e-mail
+    '=======================================================
     Public Sub SendEmail(strToAddress As String, strSubject As String, strMessageText As String, strMessageHTML As String)
         Dim message As New MailMessage
 
@@ -39,7 +43,11 @@ Public Module Utilities
 
     End Sub
 
-
+    '=======================================================
+    'Method: CreateNewWhenWhereUser
+    'Description: This method is used to create a When Where user
+    ' upon login
+    '=======================================================
     Public Function CreateNewWhenWhereUser(ByVal user As ApplicationUser) As Integer
         Dim provider As New tblProvider With _
             {.Provider_is_active = True, _
@@ -50,6 +58,19 @@ Public Module Utilities
         db.tblProviders.Add(provider)
 
         Return db.SaveChanges()
+    End Function
+
+    '=======================================================
+    'Method: GetIDFromASPUserID
+    'Description: This method is used to convert an ASP User ID (long string)
+    ' to a simplified WW User ID (int)
+    ' This will fail if a single record is not found.
+    '=======================================================
+    Public Function GetIDFromASPUserID(ByVal aspUserID As String) As Integer
+        Dim database As New WhenWhereEntities
+        Dim providerSelected As tblProvider = database.tblProviders.Single(Function(p) p.Provider_ASPUserID = aspUserID)
+
+        Return providerSelected.Provider_id
     End Function
 
 End Module

@@ -1,4 +1,8 @@
-﻿'=======================================================
+﻿
+Imports Microsoft.AspNet.Identity.Owin
+Imports Microsoft.AspNet.Identity
+
+'=======================================================
 'Class: NewAvailability
 'Description: This is the page that is shown when 
 'a user clicks the calendar, to create a new event
@@ -14,7 +18,7 @@ Public Class NewAvailability
         If Not IsPostBack Then
             txtStartTime.Text = Request.QueryString("start")
             txtEndTime.Text = Request.QueryString("end")
-            'txtProviderID = Session("")
+            
         End If
     End Sub
     '=======================================================
@@ -37,7 +41,7 @@ Public Class NewAvailability
                 availibilityNew.Availability_start_time = txtStartTime.Text
                 availibilityNew.Availability_end_time = txtEndTime.Text
                 availibilityNew.Availability_notes = txtName.Text
-                availibilityNew.Availability_provider_id = txtProviderID.Text
+                availibilityNew.Availability_provider_id = GetIDFromASPUserID(Context.User.Identity.GetUserId())
                 database.tblAvailabilities.Add(availibilityNew)
                 database.SaveChanges()
 

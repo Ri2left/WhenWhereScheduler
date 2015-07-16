@@ -60,10 +60,14 @@ Public Class ProviderDashboard
 
             'For all events for this provider
             Dim dataForThisProvider As IQueryable(Of tblAvailability) = database.tblAvailabilities
-            Dim strSelectedProviderID As String = 1
+            Dim strSelectedProviderID As String = Context.User.Identity.GetUserId
 
-            Dim query As IEnumerable(Of tblAvailability) = (From availbility In dataForThisProvider _
-                         Select availbility Where availbility.Availability_provider_id = strSelectedProviderID)
+            Dim query As IEnumerable(Of tblAvailability) = (From availability In dataForThisProvider _
+                                                            Join provider In _
+                                                            database.tblProviders.Where(Function(p) p.Provider_ASPUserID = strSelectedProviderID)
+                                                            On provider.Provider_id Equals availability.Availability_provider_id
+                                                            Select availability)
+
 
             'Copy over into DataTable
             Dim dtCalendar As DataTable
@@ -82,10 +86,10 @@ Public Class ProviderDashboard
                 dtCalendar.Rows.Add(dataRow)
             Next
 
-            'Commit Changes
+                'Commit Changes
             dtCalendar.AcceptChanges()
 
-            'Set Values
+                'Set Values
             CalendarAvailabilities.DataSource = dtCalendar
             CalendarAvailabilities.DataStartField = "start"
             CalendarAvailabilities.DataEndField = "end"
@@ -101,11 +105,12 @@ Public Class ProviderDashboard
     'selected provider
     '=======================================================
     Public Function GetProvider() As IQueryable(Of tblProvider)
-        Dim providerID As String = 1
+        Dim providerID As String = Context.User.Identity.GetUserId
         Dim database As New WhenWhereEntities
-        Dim providerSelected As IQueryable(Of tblProvider) = database.tblProviders.Where(Function(p) p.Provider_id = providerID)
+        Dim providerSelected As IQueryable(Of tblProvider) = database.tblProviders.Where(Function(p) p.Provider_ASPUserID = providerID)
         Return providerSelected
     End Function
+
     '=======================================================
     'Function: UpdateButton_Click
     'Description: This is called when a user updates the
@@ -113,7 +118,7 @@ Public Class ProviderDashboard
     '=======================================================
     Sub UpdateButton_Click(ByVal sender As Object, ByVal e As EventArgs)
         'Get Values to Save
-        Dim id As String = Request.QueryString("id")
+        Dim id As String = Context.User.Identity.GetUserId
         Dim txtFirstName As TextBox = FormProviderDetail.FindControl("EditFirstName")
         Dim txtJoinedDate As TextBox = FormProviderDetail.FindControl("EditJoinedDate")
 
@@ -124,7 +129,7 @@ Public Class ProviderDashboard
 
                 Dim providerQuery = _
                     (From p In providerToUpdate _
-                     Select p Where p.Provider_id = id).FirstOrDefault()
+                     Select p Where p.Provider_ASPUserID = id).FirstOrDefault()
 
                 providerQuery.Provider_display_short_name = txtFirstName.Text
                 providerQuery.Provider_joined_date = txtJoinedDate.Text
@@ -134,7 +139,6 @@ Public Class ProviderDashboard
                 'RecordDatabaseTransaction()
 
             End Using
-
         Catch ex As HttpException
             'MessageLabel.Text = ""
         End Try
