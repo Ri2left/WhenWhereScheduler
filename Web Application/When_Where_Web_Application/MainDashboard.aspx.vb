@@ -41,8 +41,8 @@ Public Class ProviderDashboard
             'CalendarAvailabilities.StartDate.Time()
 
             'Settings for modal popup when editing an event
-            'DayPilotCalendar1.EventClickHandling = DayPilot.Web.Ui.Enums.EventClickHandlingEnum.JavaScript
-            'DayPilotCalendar1.EventClickJavaScript = "editEvent(e)"
+            CalendarAvailabilities.EventClickHandling = DayPilot.Web.Ui.Enums.EventClickHandlingEnum.JavaScript
+            CalendarAvailabilities.EventClickJavaScript = "editEvent(e)"
 
             Dim userManager = HttpContext.Current.GetOwinContext.GetUserManager(Of ApplicationUserManager)()
             m_bIsEmailConfirmed = userManager.IsEmailConfirmed(Context.User.Identity.GetUserId())
@@ -85,16 +85,16 @@ Public Class ProviderDashboard
                 dataRow("name") = row.Availability_notes
                 dtCalendar.Rows.Add(dataRow)
             Next
-
-                'Commit Changes
+            'Commit Changes
             dtCalendar.AcceptChanges()
 
-                'Set Values
+            'Set Values
             CalendarAvailabilities.DataSource = dtCalendar
             CalendarAvailabilities.DataStartField = "start"
             CalendarAvailabilities.DataEndField = "end"
             CalendarAvailabilities.DataIdField = "id"
             CalendarAvailabilities.DataTextField = "name"
+
 
             DataBind()
         End Using
@@ -154,6 +154,9 @@ Public Class ProviderDashboard
         If (e.Command = "refresh") Then
             LoadCalendarData()
             CalendarAvailabilities.Update()
+            CalendarUpdatePanel.Update()
+
+
         End If
 
     End Sub

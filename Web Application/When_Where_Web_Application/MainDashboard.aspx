@@ -19,7 +19,7 @@
                     <ul class="lead nav nav-tabs" role="tablist">
                         <li class="active">
                             <a href="Dashboard.html">Dashboard<i class="fa fa-border fa-fw fa-table pull-right text-success"></i></a>
-                        </li>
+                        </li> 
                         <li>
                             <a href="Manage Resources.html">Manage Resources<i class="-plus fa fa-border fa-fw fa-user-plus pull-right s text-warning"></i></a>
                         </li>
@@ -100,9 +100,31 @@
                         //modal.showUrl("NewAvailability.aspx?start=" + start.toStringSortable() + "&end=" + end.toStringSortable() + "&r=" + resource);
                         modal.showUrl("NewAvailability.aspx?start=" + start.toStringSortable() + "&end=" + end.toStringSortable() + "&r=" + resource);
                     }
+
+                    function editEvent(e) {
+                        var modal = new DayPilot.Modal();
+                        modal.top = 60;
+                        modal.width = 300;
+                        modal.opacity = 70;
+                        modal.border = "5px solid #d0d0d0";
+                        modal.height = 350;
+                        modal.closed = function () { // callback executed after the dialog is closed
+                            if (this.result == "OK") {  // if the
+                                calendar.commandCallBack('refresh');
+                            }
+                        };
+                       modal.showUrl("EditAvailability.aspx?id=" + e.id());
+                    }
+
                 </script>
-                <div><DayPilot:DayPilotCalendar ClientObjectName="calendar"  ID="CalendarAvailabilities" runat="server" /></div>
-             </div>	
+                <div>
+                     <asp:ScriptManager ID="ScriptManager1" runat="server"/>
+                    <asp:UpdatePanel runat="server" ID="CalendarUpdatePanel" UpdateMode="Conditional" >
+                      <ContentTemplate>
+                        <DayPilot:DayPilotCalendar ClientObjectName="calendar"  ID="CalendarAvailabilities" runat="server" />
+                      </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>	
         </div>
         <div class="col-md-4">
             <asp:Calendar runat="server"/>
