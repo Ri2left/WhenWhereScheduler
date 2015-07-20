@@ -117,14 +117,14 @@
                     }
 
                 </script>
-                <div>
                      <asp:ScriptManager ID="ScriptManager1" runat="server"/>
                     <asp:UpdatePanel runat="server" ID="CalendarUpdatePanel" UpdateMode="Conditional" >
                       <ContentTemplate>
                         <DayPilot:DayPilotCalendar ClientObjectName="calendar"  ID="CalendarAvailabilities" runat="server" />
                       </ContentTemplate>
                     </asp:UpdatePanel>
-                </div>	
+               	
+        </div>
         </div>
         <div class="col-md-4">
             <asp:Calendar runat="server"/>
